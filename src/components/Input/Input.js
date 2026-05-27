@@ -50,7 +50,7 @@ function Input({ inputFormat, outputFormat}) {
                         opposite={outputFormat}
                     />
 
-                    <button title="Undo (Ctrl+Z)" className="btn btn-sm btn-outline-secondary px-1 py-0" onClick={handleUndo}>
+                    <button title="Undo (Ctrl+Z)" className="btn btn-sm px-1 py-0" onClick={handleUndo}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              className="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/>
@@ -59,7 +59,7 @@ function Input({ inputFormat, outputFormat}) {
                         </svg>
                     </button>
 
-                    <button title="Redo (Ctrl+Shift+Z)" className="btn btn-sm btn-outline-secondary px-1 py-0" onClick={handleRedo}>
+                    <button title="Redo (Ctrl+Shift+Z)" className="btn btn-sm px-1 py-0" onClick={handleRedo}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              className="bi bi-arrow-clockwise" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
@@ -68,7 +68,7 @@ function Input({ inputFormat, outputFormat}) {
                         </svg>
                     </button>
 
-                    <button title="Format (pretty view)" className="btn btn-sm btn-outline-secondary px-1 py-0" onClick={handleFormat}>
+                    <button title="Format (pretty view)" className="btn btn-sm px-1 py-0" onClick={handleFormat}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              className="bi bi-list-nested" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
@@ -76,7 +76,7 @@ function Input({ inputFormat, outputFormat}) {
                         </svg>
                     </button>
 
-                    <button title="Copy" className="btn btn-sm btn-outline-secondary px-1 py-0" onClick={handleCopy}>
+                    <button title="Copy" className="btn btn-sm px-1 py-0" onClick={handleCopy}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              className="bi bi-copy" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
@@ -101,6 +101,7 @@ function Input({ inputFormat, outputFormat}) {
                         minimap: { enabled: false },
                         automaticLayout: true,
                         scrollBeyondLastLine: false,
+                        wordWrap: 'on'
                     }}
                 />
             </div>

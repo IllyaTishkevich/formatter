@@ -1,8 +1,26 @@
 import { XMLBuilder, XMLParser } from 'fast-xml-parser'
 import { parseYaml, toYaml } from './yaml'
+import { addXmlDeclaration } from '../utils/xml';
 
-const parser = new XMLParser()
-const builder = new XMLBuilder()
+const parser = new XMLParser(
+    {
+        ignoreAttributes: false,
+        ignoreDeclaration: false,
+    }
+)
+
+const builder = new XMLBuilder(
+    {
+        format: true,
+        indentBy: '  ',
+        suppressEmptyNode: true,
+        declaration: {
+            include: true,
+            encoding: 'UTF-8',
+            version: '1.0',
+        },
+    }
+)
 
 export function convert(input, from, to) {
     let data
@@ -31,13 +49,12 @@ export function convert(input, from, to) {
             throw new Error('Unsupported input format')
     }
 
-    // convert output
     switch (to) {
         case 'json':
             return JSON.stringify(data, null, 2)
 
         case 'xml':
-            return builder.build(data)
+            return addXmlDeclaration(builder.build(data))
 
         case 'yaml':
             const res = toYaml(data)
