@@ -1,0 +1,21 @@
+.panel {
+    width: 100%;
+}
+
+/* >= 1200px (xl breakpoint Bootstrap) */
+@media (min-width: 1200px) {
+    .panel-input {
+        flex: 0 0 45%;
+        max-width: 45%;
+    }
+
+    .panel-actions {
+        flex: 0 0 10%;
+        max-width: 10%;
+    }
+
+    .panel-output {
+        flex: 0 0 45%;
+        max-width: 45%;
+    }
+}

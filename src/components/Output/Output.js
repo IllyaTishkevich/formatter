@@ -1,0 +1,116 @@
+import Editor from '@monaco-editor/react'
+import { useSelector } from 'react-redux'
+import { useRef } from 'react'
+import FormatSelector from "../FormatSelector";
+
+function Output({ inputFormat, outputFormat }) {
+    const { output, errors } = useSelector((s) => s.converter)
+
+    const editorRef = useRef(null)
+
+    const handleCopy = async () => {
+        const text =
+            typeof output === 'string'
+                ? output
+                : JSON.stringify(output, null, 2)
+
+        await navigator.clipboard.writeText(text)
+    }
+
+    const handleDownload = () => {
+        const text =
+            typeof output === 'string'
+                ? output
+                : JSON.stringify(output, null, 2)
+
+        const blob = new Blob([text], { type: 'text/plain' })
+        const url = URL.createObjectURL(blob)
+
+        const a = document.createElement('a')
+        a.href = url
+        a.download = `output.txt`
+        a.click()
+
+        URL.revokeObjectURL(url)
+    }
+
+    const getLanguage = (format) => {
+        switch (format) {
+            case 'json':
+                return 'json'
+            case 'xml':
+                return 'xml'
+            case 'yaml':
+                return 'yaml'
+            case 'jwt':
+                return 'plaintext'
+            default:
+                return 'plaintext'
+        }
+    }
+
+    return (
+        <div>
+
+            {errors.length > 0 && (
+                <div className="alert alert-danger">
+                    {errors.map((e, i) => (
+                        <div key={i}>
+                            {typeof e === 'string' ? e : e.message}
+                        </div>
+                    ))}
+                </div>
+            )}
+
+            <div className="d-flex gap-1 p-1 align-items-center">
+                <div className="ms-auto d-flex gap-1">
+                    <FormatSelector
+                        type="output"
+                        current={outputFormat}
+                        opposite={inputFormat}
+                    />
+                    <button title="Download" className="btn btn-sm btn-outline-secondary px-1 py-0"
+                            onClick={handleDownload}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                             className="bi bi-download" viewBox="0 0 16 16">
+                            <path
+                                d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                            <path
+                                d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                        </svg>
+                    </button>
+
+                    <button title="Copy" className="btn btn-sm btn-outline-secondary px-1 py-0" onClick={handleCopy}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                             className="bi bi-copy" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                  d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+                <Editor
+                    height="400px"
+                    value={
+                        typeof output === 'string'
+                            ? output
+                            : JSON.stringify(output, null, 2)
+                    }
+                    language={getLanguage(outputFormat)}
+                    options={{
+                        folding: true,
+                        readOnly: true,
+                        minimap: { enabled: false },
+                        automaticLayout: true,
+                        scrollBeyondLastLine: false,
+                    }}
+                    onMount={(editor) => {
+                        editorRef.current = editor
+                    }}
+                />
+        </div>
+    )
+}
+
+export default Output;
