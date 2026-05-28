@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import FormatSelector from "../FormatSelector";
 import { minifyByFormat } from '../../core/minify'
 
-function Output({ inputFormat, outputFormat }) {
+function Output({ inputFormat, outputFormat, handleConvert }) {
     const { output, errors } = useSelector((s) => s.converter)
 
     const editorRef = useRef(null)
@@ -84,6 +84,7 @@ function Output({ inputFormat, outputFormat }) {
                         type="output"
                         current={outputFormat}
                         opposite={inputFormat}
+                        handleConvert={handleConvert}
                     />
 
                     <button title="Minify" className="btn btn-sm px-1 py-0" onClick={handleMinify}>

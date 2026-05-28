@@ -4,7 +4,7 @@ import { setInput } from '../../store/converterSlice'
 import { useRef } from 'react'
 import FormatSelector from "../FormatSelector";
 
-function Input({ inputFormat, outputFormat}) {
+function Input({ inputFormat, outputFormat, handleConvert}) {
     const dispatch = useDispatch()
     const input = useSelector((s) => s.converter.input)
 
@@ -48,6 +48,7 @@ function Input({ inputFormat, outputFormat}) {
                         type="input"
                         current={inputFormat}
                         opposite={outputFormat}
+                        handleConvert={handleConvert}
                     />
 
                     <button title="Undo (Ctrl+Z)" className="btn btn-sm px-1 py-0" onClick={handleUndo}>

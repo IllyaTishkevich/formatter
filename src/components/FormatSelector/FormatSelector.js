@@ -1,18 +1,22 @@
 import { useNavigate } from 'react-router-dom'
 import SUPPORTED from "../../utils/formats";
+import {useCallback} from "react";
 
-const FormatSelector = ({ type, current, opposite }) => {
+const FormatSelector = ({ type, current, opposite, handleConvert }) => {
     const navigate = useNavigate()
 
-    const handleChange = (e) => {
+    const handleChange = useCallback((e) => {
         const newFormat = e.target.value
+
 
         if (type === 'input') {
             navigate(`/${newFormat}/${opposite}`)
+            handleConvert(newFormat, opposite);
         } else {
             navigate(`/${opposite}/${newFormat}`)
+            handleConvert(opposite, newFormat);
         }
-    }
+    }, [type, current, opposite]);
 
     return (
         <select
