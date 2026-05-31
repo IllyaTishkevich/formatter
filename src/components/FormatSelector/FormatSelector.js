@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import SUPPORTED from "../../utils/formats";
-import {useCallback} from "react";
+import { useCallback } from "react";
 
 const FormatSelector = ({ type, current, opposite, handleConvert }) => {
     const navigate = useNavigate()

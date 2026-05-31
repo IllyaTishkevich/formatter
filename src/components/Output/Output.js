@@ -1,11 +1,19 @@
 import Editor from '@monaco-editor/react'
-import { useSelector } from 'react-redux'
-import { useRef } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import {useEffect, useRef, useState} from 'react'
 import FormatSelector from "../FormatSelector";
 import { minifyByFormat } from '../../core/minify'
+import {setOutput} from "../../store/converterSlice";
 
 function Output({ inputFormat, outputFormat, handleConvert }) {
-    const { output, errors } = useSelector((s) => s.converter)
+    const dispatch = useDispatch();
+    const output = useSelector((s) => s.converter.output)
+    const [stats, setStats] = useState({
+        line: 1,
+        column: 1,
+        lines: 0,
+        chars: 0,
+    })
 
     const editorRef = useRef(null)
 
@@ -29,10 +37,14 @@ function Output({ inputFormat, outputFormat, handleConvert }) {
 
         const a = document.createElement('a')
         a.href = url
-        a.download = `output.txt`
+        a.download = `${outputFormat}.txt`
         a.click()
 
         URL.revokeObjectURL(url)
+    }
+
+    const handleClean = () => {
+        dispatch(setOutput(''));
     }
 
     const handleMinify = () => {
@@ -67,17 +79,6 @@ function Output({ inputFormat, outputFormat, handleConvert }) {
 
     return (
         <div>
-
-            {errors.length > 0 && (
-                <div className="alert alert-danger">
-                    {errors.map((e, i) => (
-                        <div key={i}>
-                            {typeof e === 'string' ? e : e.message}
-                        </div>
-                    ))}
-                </div>
-            )}
-
             <div className="d-flex gap-1 p-1 align-items-center">
                 <div className="ms-auto d-flex gap-1">
                     <FormatSelector
@@ -106,6 +107,16 @@ function Output({ inputFormat, outputFormat, handleConvert }) {
                         </svg>
                     </button>
 
+                    <button title="Clean" className="btn btn-sm px-1 py-0" onClick={handleClean}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                             className="bi bi-trash" viewBox="0 0 16 16">
+                            <path
+                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                            <path
+                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                        </svg>
+                    </button>
+
                     <button title="Copy" className="btn btn-sm px-1 py-0" onClick={handleCopy}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              className="bi bi-copy" viewBox="0 0 16 16">
@@ -117,7 +128,7 @@ function Output({ inputFormat, outputFormat, handleConvert }) {
 
             </div>
                 <Editor
-                    height="400px"
+                    height="600px"
                     value={
                         typeof output === 'string'
                             ? output
@@ -133,10 +144,33 @@ function Output({ inputFormat, outputFormat, handleConvert }) {
                         wordWrap: 'on'
                     }}
                     onMount={(editor) => {
-                        editorRef.current = editor
+                        editorRef.current = editor;
+                        const updateStats = () => {
+                            const model = editor.getModel()
+                            const pos = editor.getPosition()
+
+                            setStats({
+                                line: pos.lineNumber,
+                                column: pos.column,
+                                lines: model.getLineCount(),
+                                chars: output.length
+                            })
+                        }
+                        updateStats();
+
+                        editor.onDidChangeCursorPosition(updateStats)
+                        editor.onDidChangeModelContent(updateStats)
                     }}
                 />
+            <div className="d-flex small text-muted px-2 py-1 border-top">
+                <div className="ms-auto">
+                    Lines: {stats.lines} |
+                    Chars: {stats.chars} |
+                    Ln {stats.line}, Col {stats.column}
+                </div>
+            </div>
         </div>
+
     )
 }
 

@@ -1,16 +1,22 @@
 import Editor from '@monaco-editor/react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setInput } from '../../store/converterSlice'
-import { useRef } from 'react'
+import {useCallback, useEffect, useRef, useState} from 'react'
 import FormatSelector from "../FormatSelector";
 
 function Input({ inputFormat, outputFormat, handleConvert}) {
     const dispatch = useDispatch()
     const input = useSelector((s) => s.converter.input)
+    const [stats, setStats] = useState({
+        line: 1,
+        column: 1,
+        lines: 0,
+        chars: 0,
+    })
 
     const editorRef = useRef(null)
 
-    const handleFormat = () => {
+    const handleFormat = useCallback(() => {
         try {
             if (inputFormat === 'json') {
                 const parsed = JSON.parse(editorRef.current.getValue())
@@ -18,17 +24,19 @@ function Input({ inputFormat, outputFormat, handleConvert}) {
             }
 
             if (inputFormat === 'xml') {
-                // позже добавим XML formatter
             }
         } catch (e) {
             console.log(e.message)
         }
-    }
+    }, [inputFormat, outputFormat])
 
-    const handleCopy = async () => {
-        const text = editorRef.current.getValue()
-        await navigator.clipboard.writeText(text)
-    }
+    const handleCopy = useCallback( () => {
+        navigator.clipboard.writeText(input)
+    }, [input])
+
+    const handlePaste = useCallback(() => {
+        handleConvert(inputFormat, outputFormat);
+    }, [inputFormat, outputFormat])
 
     const handleUndo = () => {
         editorRef.current.trigger('keyboard', 'undo')
@@ -97,6 +105,22 @@ function Input({ inputFormat, outputFormat, handleConvert}) {
                     onChange={(val) => dispatch(setInput(val || ''))}
                     onMount={(editor) => {
                         editorRef.current = editor
+                        editor.onDidPaste(handlePaste);
+                        const updateStats = () => {
+                            const model = editor.getModel()
+                            const pos = editor.getPosition()
+
+                            setStats({
+                                line: pos.lineNumber,
+                                column: pos.column,
+                                lines: model.getLineCount(),
+                                chars: input.length
+                            })
+                        }
+                        updateStats();
+
+                        editor.onDidChangeCursorPosition(updateStats)
+                        editor.onDidChangeModelContent(updateStats)
                     }}
                     options={{
                         minimap: { enabled: false },
@@ -105,6 +129,13 @@ function Input({ inputFormat, outputFormat, handleConvert}) {
                         wordWrap: 'on'
                     }}
                 />
+            </div>
+            <div className="d-flex small text-muted px-2 py-1 border-top">
+                <div className="ms-auto">
+                    Lines: {stats.lines} |
+                    Chars: {stats.chars} |
+                    Ln {stats.line}, Col {stats.column}
+                </div>
             </div>
         </div>
     )

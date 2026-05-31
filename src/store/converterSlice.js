@@ -12,26 +12,46 @@ const converterSlice = createSlice({
     initialState,
     reducers: {
         setInput: (state, action) => {
-            state.input = action.payload
+            state.input = action.payload;
         },
 
         setOutput: (state, action) => {
-            state.output = action.payload
+            state.output = action.payload;
         },
 
         setErrors: (state, action) => {
-            state.errors = action.payload
+            state.errors = action.payload;
         },
 
         clear: (state) => {
-            state.input = ''
-            state.output = null
-            state.errors = []
+            state.input = '';
+            state.output = null;
+            state.errors = [];
         },
+
+        addErrors: (state, action) => {
+            state.errors.push(action.payload);
+        },
+
+        removeError: (state, action) => {
+            state.errors.splice(action.payload, 1);
+        },
+
+        removeFirstError: (state) => {
+            state.errors.shift();
+        }
     },
 })
 
-export const { setInput, setOutput, setErrors, clear } =
+export const {
+    setInput,
+    setOutput,
+    setErrors,
+    clear,
+    addErrors,
+    removeError,
+    removeFirstError
+} =
     converterSlice.actions
 
 export default converterSlice.reducer

@@ -11,8 +11,6 @@ const normalizeFormat = (value) => {
 }
 
 const ConverterPage = () => {
-    const { input, output } = useParams()
-
     const params = useParams()
 
     const config = useMemo(() => {
