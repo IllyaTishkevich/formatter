@@ -10,14 +10,14 @@ import ConverterPage from './pages/ConverterPage'
 function App() {
   return (
       <div className="App">
-          <Header />
-            <Message />
-              <BrowserRouter>
-                  <Routes>
-                      <Route path="/:input?/:output?" element={<ConverterPage />} />
-                  </Routes>
-              </BrowserRouter>
-      <Footer />
+          <BrowserRouter>
+              <Header />
+              <Message />
+              <Routes>
+                  <Route path="/:input?/:output?" element={<ConverterPage />} />
+              </Routes>
+              <Footer />
+          </BrowserRouter>
     </div>
   );
 }

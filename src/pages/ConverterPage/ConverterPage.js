@@ -15,17 +15,14 @@ const ConverterPage = () => {
 
     const config = useMemo(() => {
         const input = normalizeFormat(params.input)
-        const output = normalizeFormat(params.output)
-
+        const output = params.output ?? input
         return {
             inputFormat: input,
             outputFormat: output,
         }
     }, [params])
 
-    return <div className="App">
-        <Body config={config}/>
-    </div>
+    return <Body config={config}/>
 };
 
 export default ConverterPage;

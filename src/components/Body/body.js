@@ -5,14 +5,15 @@ import './body.css'
 import { convert } from "../../core/converterEngine";
 import { setOutput } from "../../store/converterSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useCallback, useMemo } from "react";
+import {useCallback, useEffect, useMemo} from "react";
 import { validateByFormat } from "../../core/validator";
 import useMessage from "../../core/message";
 
 const Body = ({ config }) => {
-    const {addErrorMessage, addSuccessMessage, clearMessage} = useMessage();
+    const { addErrorMessage, addSuccessMessage, clearMessage } = useMessage();
     const dispatch = useDispatch()
     const { input } = useSelector((s) => s.converter)
+    const { inputFormat, outputFormat } = config
 
     const handleValidate = useCallback(() => {
         const res = validateByFormat(config.inputFormat, input)
@@ -33,8 +34,8 @@ const Body = ({ config }) => {
                 outputFormat
             )
 
-            dispatch(setOutput(result))
-            clearMessage()
+            dispatch(setOutput(result));
+            clearMessage();
         } catch (e) {
             addErrorMessage(e.message)
         }
@@ -46,7 +47,13 @@ const Body = ({ config }) => {
         </div>
     }, [config, input])
 
-    return <main className="my-1 p-3">
+    useEffect(() => {
+        if (input.length > 0) {
+            handleConvert(inputFormat, outputFormat);
+        }
+    }, [inputFormat, outputFormat])
+
+    return <main className="py-3 px-5">
         <div className="d-flex flex-column flex-xl-row">
             <div className="bg-body-tertiary border rounded-3 p-1 panel panel-input">
                 <Input inputFormat={config.inputFormat} outputFormat={config.outputFormat} handleConvert={handleConvert}/>

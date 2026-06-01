@@ -5,6 +5,7 @@
 /* >= 1200px (xl breakpoint Bootstrap) */
 @media (min-width: 1200px) {
     .panel-input {
+        padding-left: 6rem;
         flex: 0 0 45%;
         max-width: 45%;
     }
@@ -15,6 +16,7 @@
     }
 
     .panel-output {
+        padding-right: 6rem;
         flex: 0 0 45%;
         max-width: 45%;
     }

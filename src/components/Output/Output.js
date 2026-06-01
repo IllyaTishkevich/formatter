@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useRef, useState } from 'react'
 import FormatSelector from "../FormatSelector";
 import { minifyByFormat } from '../../core/minify'
-import {setOutput} from "../../store/converterSlice";
+import { setOutput } from "../../store/converterSlice";
 
 function Output({ inputFormat, outputFormat, handleConvert }) {
     const dispatch = useDispatch();
@@ -14,7 +14,6 @@ function Output({ inputFormat, outputFormat, handleConvert }) {
         lines: 0,
         chars: 0,
     })
-
     const editorRef = useRef(null)
 
     const handleCopy = async () => {
@@ -88,7 +87,7 @@ function Output({ inputFormat, outputFormat, handleConvert }) {
                         handleConvert={handleConvert}
                     />
 
-                    <button title="Minify" className="btn btn-sm px-1 py-0" onClick={handleMinify}>
+                    <button title="Minify" className="btn btn-light btn-sm px-1 py-0" onClick={handleMinify}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              className="bi bi-arrows-collapse-vertical" viewBox="0 0 16 16">
                             <path
@@ -96,7 +95,7 @@ function Output({ inputFormat, outputFormat, handleConvert }) {
                         </svg>
                     </button>
 
-                    <button title="Download" className="btn btn-sm px-1 py-0"
+                    <button title="Download" className="btn btn-light btn-sm px-1 py-0"
                             onClick={handleDownload}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              className="bi bi-download" viewBox="0 0 16 16">
@@ -107,7 +106,7 @@ function Output({ inputFormat, outputFormat, handleConvert }) {
                         </svg>
                     </button>
 
-                    <button title="Clean" className="btn btn-sm px-1 py-0" onClick={handleClean}>
+                    <button title="Clean" className="btn btn-light btn-sm px-1 py-0" onClick={handleClean}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              className="bi bi-trash" viewBox="0 0 16 16">
                             <path
@@ -117,7 +116,7 @@ function Output({ inputFormat, outputFormat, handleConvert }) {
                         </svg>
                     </button>
 
-                    <button title="Copy" className="btn btn-sm px-1 py-0" onClick={handleCopy}>
+                    <button title="Copy" className="btn btn-light btn-sm px-1 py-0" onClick={handleCopy}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              className="bi bi-copy" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"

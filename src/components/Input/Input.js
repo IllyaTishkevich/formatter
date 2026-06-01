@@ -1,7 +1,7 @@
 import Editor from '@monaco-editor/react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setInput } from '../../store/converterSlice'
-import {useCallback, useEffect, useRef, useState} from 'react'
+import { useCallback, useRef, useState } from 'react'
 import FormatSelector from "../FormatSelector";
 
 function Input({ inputFormat, outputFormat, handleConvert}) {
@@ -48,8 +48,6 @@ function Input({ inputFormat, outputFormat, handleConvert}) {
 
     return (
         <div className="h-100 d-flex flex-column">
-
-            {/* TOOLBAR */}
             <div className="d-flex gap-1 p-1 align-items-center">
                 <div className="ms-auto d-flex gap-1">
                     <FormatSelector
@@ -59,7 +57,7 @@ function Input({ inputFormat, outputFormat, handleConvert}) {
                         handleConvert={handleConvert}
                     />
 
-                    <button title="Undo (Ctrl+Z)" className="btn btn-sm px-1 py-0" onClick={handleUndo}>
+                    <button title="Undo (Ctrl+Z)" className="btn btn-light btn-sm px-1 py-0" onClick={handleUndo}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              className="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/>
@@ -68,7 +66,7 @@ function Input({ inputFormat, outputFormat, handleConvert}) {
                         </svg>
                     </button>
 
-                    <button title="Redo (Ctrl+Shift+Z)" className="btn btn-sm px-1 py-0" onClick={handleRedo}>
+                    <button title="Redo (Ctrl+Shift+Z)" className="btn btn-light btn-sm px-1 py-0" onClick={handleRedo}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              className="bi bi-arrow-clockwise" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
@@ -77,7 +75,7 @@ function Input({ inputFormat, outputFormat, handleConvert}) {
                         </svg>
                     </button>
 
-                    <button title="Format (pretty view)" className="btn btn-sm px-1 py-0" onClick={handleFormat}>
+                    <button title="Format (pretty view)" className="btn btn-light btn-sm px-1 py-0" onClick={handleFormat}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              className="bi bi-list-nested" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
@@ -85,7 +83,7 @@ function Input({ inputFormat, outputFormat, handleConvert}) {
                         </svg>
                     </button>
 
-                    <button title="Copy" className="btn btn-sm px-1 py-0" onClick={handleCopy}>
+                    <button title="Copy" className="btn btn-light btn-sm px-1 py-0" onClick={handleCopy}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              className="bi bi-copy" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
@@ -95,41 +93,37 @@ function Input({ inputFormat, outputFormat, handleConvert}) {
                 </div>
 
             </div>
+            <Editor
+                height="100%"
+                language={inputFormat}
+                value={input}
+                onChange={(val) => dispatch(setInput(val || ''))}
+                onMount={(editor) => {
+                    editorRef.current = editor
+                    editor.onDidPaste(handlePaste);
+                    const updateStats = () => {
+                        const model = editor.getModel()
+                        const pos = editor.getPosition()
 
-            {/* EDITOR */}
-            <div style={{flex: 1, minHeight: 0}}>
-                <Editor
-                    height="100%"
-                    language={inputFormat}
-                    value={input}
-                    onChange={(val) => dispatch(setInput(val || ''))}
-                    onMount={(editor) => {
-                        editorRef.current = editor
-                        editor.onDidPaste(handlePaste);
-                        const updateStats = () => {
-                            const model = editor.getModel()
-                            const pos = editor.getPosition()
+                        setStats({
+                            line: pos.lineNumber,
+                            column: pos.column,
+                            lines: model.getLineCount(),
+                            chars: input.length
+                        })
+                    }
+                    updateStats();
 
-                            setStats({
-                                line: pos.lineNumber,
-                                column: pos.column,
-                                lines: model.getLineCount(),
-                                chars: input.length
-                            })
-                        }
-                        updateStats();
-
-                        editor.onDidChangeCursorPosition(updateStats)
-                        editor.onDidChangeModelContent(updateStats)
-                    }}
-                    options={{
-                        minimap: { enabled: false },
-                        automaticLayout: true,
-                        scrollBeyondLastLine: false,
-                        wordWrap: 'on'
-                    }}
-                />
-            </div>
+                    editor.onDidChangeCursorPosition(updateStats)
+                    editor.onDidChangeModelContent(updateStats)
+                }}
+                options={{
+                    minimap: { enabled: false },
+                    automaticLayout: true,
+                    scrollBeyondLastLine: false,
+                    wordWrap: 'on'
+                }}
+            />
             <div className="d-flex small text-muted px-2 py-1 border-top">
                 <div className="ms-auto">
                     Lines: {stats.lines} |
