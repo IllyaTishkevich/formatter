@@ -1,6 +1,6 @@
 import Editor from '@monaco-editor/react'
 import { useSelector, useDispatch } from 'react-redux'
-import {useEffect, useRef, useState} from 'react'
+import { useRef, useState } from 'react'
 import FormatSelector from "../FormatSelector";
 import { minifyByFormat } from '../../core/minify'
 import {setOutput} from "../../store/converterSlice";
