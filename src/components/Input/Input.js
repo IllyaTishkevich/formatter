@@ -41,7 +41,6 @@ const  Input = () => {
 
     const handlePaste = useCallback(() => {
         const value = editorRef.current.getValue();
-        console.log(value)
 
         handleConvert(inputFormat, outputFormat, value);
     }, [inputFormat, outputFormat, handleConvert])

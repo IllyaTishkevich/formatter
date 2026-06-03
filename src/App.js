@@ -3,13 +3,14 @@ import './App.css';
 import Header from './components/Header';
 import Message from "./components/Message";
 import Footer from './components/Footer';
+import { HelmetProvider } from "react-helmet-async"
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ConverterPage from './pages/ConverterPage'
 
 function App() {
   return (
-      <div className="App">
+      <HelmetProvider>
           <BrowserRouter>
               <Header />
               <Message />
@@ -18,7 +19,7 @@ function App() {
               </Routes>
               <Footer />
           </BrowserRouter>
-    </div>
+      </HelmetProvider>
   );
 }
 
