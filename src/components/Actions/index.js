@@ -1,3 +1,3 @@
-import Actions from './Actions';
+import useActions from './Actions';
 
-export default Actions;
+export default useActions;

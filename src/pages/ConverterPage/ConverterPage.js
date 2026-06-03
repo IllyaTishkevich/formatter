@@ -1,28 +1,26 @@
-import { useParams } from 'react-router-dom'
-import { useMemo } from 'react'
-import Body from "../../components/Body";
-import SUPPORTED from "../../utils/formats";
+import Input from "../../components/Input";
+import Output from "../../components/Output";
 
-const normalizeFormat = (value) => {
-    if (!value || !SUPPORTED.includes(value)) {
-        return 'json'
-    }
-    return value
-}
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import useActions from "../../components/Actions";
+import useParams from "../../core/params";
+import Body from "../../components/Body";
 
 const ConverterPage = () => {
-    const params = useParams()
+    const { input } = useSelector((s) => s.converter)
+    const { inputFormat, outputFormat } = useParams()
 
-    const config = useMemo(() => {
-        const input = normalizeFormat(params.input)
-        const output = params.output ?? input
-        return {
-            inputFormat: input,
-            outputFormat: output,
+    const { handleConvert, actions, Validate, Convert } = useActions()
+
+
+    useEffect(() => {
+        if (input.length > 0) {
+            handleConvert(inputFormat, outputFormat);
         }
-    }, [params])
+    }, [inputFormat, outputFormat])
 
-    return <Body config={config}/>
+    return <Body Input={Input} Output={Output} Actions={actions([Convert, Validate])} />
 };
 
 export default ConverterPage;

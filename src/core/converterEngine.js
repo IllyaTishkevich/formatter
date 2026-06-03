@@ -54,7 +54,7 @@ export function convert(input, from, to) {
             return JSON.stringify(data, null, 2)
 
         case 'xml':
-            return addXmlDeclaration(builder.build(data))
+            return builder.build(data)
 
         case 'yaml':
             const res = toYaml(data)

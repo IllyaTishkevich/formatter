@@ -3,10 +3,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setInput } from '../../store/converterSlice'
 import { useCallback, useRef, useState } from 'react'
 import FormatSelector from "../FormatSelector";
+import useParams from "../../core/params";
+import useActions from "../Actions";
 
-function Input({ inputFormat, outputFormat, handleConvert}) {
+const  Input = () => {
+    const { inputFormat, outputFormat } = useParams()
     const dispatch = useDispatch()
     const input = useSelector((s) => s.converter.input)
+
+    const { handleConvert } = useActions()
     const [stats, setStats] = useState({
         line: 1,
         column: 1,
@@ -35,8 +40,11 @@ function Input({ inputFormat, outputFormat, handleConvert}) {
     }, [input])
 
     const handlePaste = useCallback(() => {
-        handleConvert(inputFormat, outputFormat);
-    }, [inputFormat, outputFormat])
+        const value = editorRef.current.getValue();
+        console.log(value)
+
+        handleConvert(inputFormat, outputFormat, value);
+    }, [inputFormat, outputFormat, handleConvert])
 
     const handleUndo = () => {
         editorRef.current.trigger('keyboard', 'undo')
@@ -94,10 +102,11 @@ function Input({ inputFormat, outputFormat, handleConvert}) {
 
             </div>
             <Editor
-                height="100%"
+                height="500px"
                 language={inputFormat}
                 value={input}
                 onChange={(val) => dispatch(setInput(val || ''))}
+
                 onMount={(editor) => {
                     editorRef.current = editor
                     editor.onDidPaste(handlePaste);

@@ -20,3 +20,27 @@ main {
   border-width: 1px 0;
   box-shadow: inset 0 .5em 1.5em #0000001a, inset 0 .125em .5em #00000026;
 }
+
+.panel {
+  width: 100%;
+}
+
+/* >= 1200px (xl breakpoint Bootstrap) */
+@media (min-width: 1200px) {
+  .panel-input {
+    padding-left: 6rem;
+    flex: 0 0 45%;
+    max-width: 45%;
+  }
+
+  .panel-actions {
+    flex: 0 0 10%;
+    max-width: 10%;
+  }
+
+  .panel-output {
+    padding-right: 6rem;
+    flex: 0 0 45%;
+    max-width: 45%;
+  }
+}

@@ -4,9 +4,13 @@ import { useRef, useState } from 'react'
 import FormatSelector from "../FormatSelector";
 import { minifyByFormat } from '../../core/minify'
 import { setOutput } from "../../store/converterSlice";
+import useParams from "../../core/params";
+import useActions from "../Actions";
 
-function Output({ inputFormat, outputFormat, handleConvert }) {
+function Output() {
     const dispatch = useDispatch();
+    const { inputFormat, outputFormat } = useParams()
+    const { handleConvert } = useActions()
     const output = useSelector((s) => s.converter.output)
     const [stats, setStats] = useState({
         line: 1,
@@ -127,7 +131,7 @@ function Output({ inputFormat, outputFormat, handleConvert }) {
 
             </div>
                 <Editor
-                    height="600px"
+                    height="500px"
                     value={
                         typeof output === 'string'
                             ? output
