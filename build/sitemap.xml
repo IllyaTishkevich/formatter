@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>https://validformat.online/</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/json</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/json/json</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/json/xml</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/json/yaml</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/xml</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/xml/json</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/xml/xml</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/xml/yaml</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/yaml</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/yaml/json</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/yaml/xml</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/yaml/yaml</loc>
+    </url>
+
+</urlset>

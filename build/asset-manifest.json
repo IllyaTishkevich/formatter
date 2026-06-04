@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "https://validformat.online/static/css/main.57321667.css",
+    "main.js": "https://validformat.online/static/js/main.568b11a4.js",
+    "static/js/453.999edf9d.chunk.js": "https://validformat.online/static/js/453.999edf9d.chunk.js",
+    "static/media/logo.png": "https://validformat.online/static/media/logo.7aa8868385959e0ab9bd.png",
+    "static/media/logotext.png": "https://validformat.online/static/media/logotext.a4b578ddea5a76d3111e.png",
+    "static/media/logoIcon.png": "https://validformat.online/static/media/logoIcon.30649943c98bb697c37a.png",
+    "index.html": "https://validformat.online/index.html",
+    "main.57321667.css.map": "https://validformat.online/static/css/main.57321667.css.map",
+    "main.568b11a4.js.map": "https://validformat.online/static/js/main.568b11a4.js.map",
+    "453.999edf9d.chunk.js.map": "https://validformat.online/static/js/453.999edf9d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.57321667.css",
+    "static/js/main.568b11a4.js"
+  ]
+}
