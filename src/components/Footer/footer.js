@@ -68,7 +68,7 @@ const Footer = () => {
             </div>
         </div>
         <div className="d-flex flex-column flex-sm-row justify-content-between py-1 px-4 border-top">
-            <span>© {year} Illya Tsishkevich</span>
+            <span>© {year} Illya Tsishkevich</span><span><Link to="/policy" className="nav-link p-0 text-body-secondary">Privacy Policy</Link></span>
         </div>
     </footer>
 }

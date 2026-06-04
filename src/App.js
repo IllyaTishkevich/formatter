@@ -7,6 +7,7 @@ import { HelmetProvider } from "react-helmet-async"
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ConverterPage from './pages/ConverterPage'
+import PrivacyPolicy from './pages/PrivacyPolicy'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
               <Header />
               <Message />
               <Routes>
+                  <Route path="/policy" element={<PrivacyPolicy />} />
                   <Route path="/:input?/:output?" element={<ConverterPage />} />
               </Routes>
               <Footer />

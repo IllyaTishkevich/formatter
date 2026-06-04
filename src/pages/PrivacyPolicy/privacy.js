@@ -1,5 +1,43 @@
+import { Helmet } from "react-helmet-async";
+
 const PrivacyPolicy = () => {
-    return <main className="py-5">
+    return <>
+        <Helmet>
+            <meta
+                name="keywords"
+                content="privacy policy, data protection, cookies, local storage, GDPR"
+            />
+            <title>Privacy Policy | ValidFormat</title>
+            <meta
+                name="description"
+                content="Privacy Policy for ValidFormat. Learn how we handle data, cookies, and local storage."
+            />
+            <meta name="robots" content="index, follow" />
+            <link rel="canonical" href="https://validformat.online/privacy" />
+
+            <meta property="og:title" content="Privacy Policy | ValidFormat" />
+            <meta
+                property="og:description"
+                content="Learn how ValidFormat handles data, cookies, and privacy."
+            />
+            <meta property="og:url" content="https://validformat.online/privacy" />
+            <meta
+                property="og:image"
+                content="https://validformat.online/logo/logo512.png"
+            />
+
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content="Privacy Policy | ValidFormat" />
+            <meta
+                name="twitter:description"
+                content="Learn how ValidFormat handles data, cookies, and privacy."
+            />
+            <meta
+                name="twitter:image"
+                content="https://validformat.online/logo/logo512.png"
+            />
+        </Helmet>
+        <main className="py-5">
         <div className="container" style={{ maxWidth: "900px" }}>
 
             <div className="card shadow-sm p-4 border-0 rounded-3">
@@ -45,7 +83,9 @@ const PrivacyPolicy = () => {
 
                 <h5 className="mt-4 fw-semibold">5. Cookies</h5>
                 <p>
-                    We do not use cookies for tracking or advertising purposes.
+                    We may use cookies or similar technologies only when required by third-party services such as analytics or advertising providers.
+
+                    These cookies are not used by us to personally identify users or track individual behavior.
                 </p>
 
                 <h5 className="mt-4 fw-semibold">6. Third-Party Services</h5>
@@ -80,6 +120,7 @@ const PrivacyPolicy = () => {
             </div>
         </div>
     </main>
+        </>
 }
 
 export default PrivacyPolicy;
