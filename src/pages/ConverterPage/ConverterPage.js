@@ -3,15 +3,15 @@ import Output from "../../components/Output";
 import { Helmet } from "react-helmet-async";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
-import useActions from "../../components/Actions";
+import { ActionButton, ActionsBlock } from "../../components/Actions";
+import useActions from "../../components/Actions/hook";
 import useParams from "../../core/params";
-import Body from "../../components/Body";
 
 const ConverterPage = () => {
     const { input } = useSelector((s) => s.converter)
     const { inputFormat, outputFormat } = useParams()
 
-    const { handleConvert, actions, Validate, Convert } = useActions()
+    const { handleConvert, handleValidate } = useActions()
 
 
     useEffect(() => {
@@ -20,7 +20,9 @@ const ConverterPage = () => {
         }
     }, [inputFormat, outputFormat])
 
-    const description = `Convert ${inputFormat.toUpperCase()} to ${outputFormat.toUpperCase()}. Minify, Prettify and Validate ${outputFormat.toUpperCase()}.`;
+    const description = inputFormat.toUpperCase() == outputFormat.toUpperCase()
+        ? `Format / Beautify your ${outputFormat.toUpperCase()}. Minify and Validate ${outputFormat.toUpperCase()}.`
+        : `Convert ${inputFormat.toUpperCase()} to ${outputFormat.toUpperCase()}. Minify, Prettify and Validate ${outputFormat.toUpperCase()}.`;
     const title = `${inputFormat.toUpperCase()} to ${outputFormat.toUpperCase()} Converter`;
     const url = window.location.href;
 
@@ -42,11 +44,20 @@ const ConverterPage = () => {
             <meta name="twitter:title" content={ title } />
             <meta name="twitter:description" content={ description } />
         </Helmet>
-        <Body
-            Input={Input}
-            Output={Output}
-            Actions={actions([Convert, Validate])}
-        />
+        <main className="py-3 px-5">
+            <div className="d-flex flex-column flex-xl-row">
+                <div className="bg-body-tertiary border rounded-3 p-1 panel panel-input">
+                    <Input />
+                </div>
+                <ActionsBlock>
+                    <ActionButton handler={() => handleConvert(inputFormat, outputFormat)} label='Convert' />
+                    <ActionButton handler={handleValidate} label='Validate' />
+                </ActionsBlock>
+                <div className="bg-body-tertiary border rounded-3 p-1 panel panel-output">
+                    <Output />
+                </div>
+            </div>
+        </main>
     </>
 };
 

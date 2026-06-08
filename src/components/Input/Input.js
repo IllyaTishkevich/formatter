@@ -4,7 +4,7 @@ import { setInput } from '../../store/converterSlice'
 import { useCallback, useRef, useState } from 'react'
 import FormatSelector from "../FormatSelector";
 import useParams from "../../core/params";
-import useActions from "../Actions";
+import { useActions } from "../Actions";
 
 const  Input = () => {
     const { inputFormat, outputFormat } = useParams()

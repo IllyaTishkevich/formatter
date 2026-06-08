@@ -1,3 +1,7 @@
-import useActions from './Actions';
+import { useActions, ActionButton, ActionsBlock } from "./Actions";
 
-export default useActions;
+export {
+    useActions,
+    ActionButton,
+    ActionsBlock
+};

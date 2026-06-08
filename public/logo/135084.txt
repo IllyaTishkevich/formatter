@@ -1,0 +1,13 @@
+@     IN      SOA   u1.hoster.by.   support.hoster.by. (
+	    2026060507		; Serial
+	    43200		; Refresh
+	    7200		; Retry
+	    604800		; Expiry
+	    3600		; TTL
+)
+;;; A ;;;
+validformat.online.    300    IN  A      86.57.170.11
+www.validformat.online.    300    IN  A      86.57.170.11
+;;; NS ;;;
+validformat.online.    600    IN  NS      u1.hoster.by.
+validformat.online.    600    IN  NS      u2.hoster.by.

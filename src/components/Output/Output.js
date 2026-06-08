@@ -5,7 +5,7 @@ import FormatSelector from "../FormatSelector";
 import { minifyByFormat } from '../../core/minify'
 import { setOutput } from "../../store/converterSlice";
 import useParams from "../../core/params";
-import useActions from "../Actions";
+import { useActions } from "../Actions";
 
 function Output() {
     const dispatch = useDispatch();
