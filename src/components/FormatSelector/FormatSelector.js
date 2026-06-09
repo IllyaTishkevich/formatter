@@ -8,13 +8,17 @@ const FormatSelector = ({ type, current, opposite, handleConvert }) => {
     const handleChange = useCallback((e) => {
         const newFormat = e.target.value
 
-
-        if (type === 'input') {
-            navigate(`/${newFormat}/${opposite}`)
+        if (newFormat == opposite) {
+            navigate(`/${newFormat}`)
             handleConvert();
         } else {
-            navigate(`/${opposite}/${newFormat}`)
-            handleConvert();
+            if (type === 'input') {
+                navigate(`/${newFormat}/${opposite}`)
+                handleConvert();
+            } else {
+                navigate(`/${opposite}/${newFormat}`)
+                handleConvert();
+            }
         }
     }, [type, current, opposite]);
 
