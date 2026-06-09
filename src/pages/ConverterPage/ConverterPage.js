@@ -20,15 +20,11 @@ const ConverterPage = () => {
         }
     }, [inputFormat, outputFormat])
 
-    const description = inputFormat.toUpperCase() == outputFormat.toUpperCase()
-        ? `Format / Beautify your ${outputFormat.toUpperCase()}. Minify and Validate ${outputFormat.toUpperCase()}.`
-        : `Convert ${inputFormat.toUpperCase()} to ${outputFormat.toUpperCase()}. Minify, Prettify and Validate ${outputFormat.toUpperCase()}.`;
-    const title = inputFormat.toUpperCase() == outputFormat.toUpperCase()
-        ? `${inputFormat.toUpperCase()} Formatter`
-        : `${inputFormat.toUpperCase()} to ${outputFormat.toUpperCase()} Converter`;
+    const description = `Convert ${inputFormat.toUpperCase()} to ${outputFormat.toUpperCase()}. Minify, Prettify and Validate ${outputFormat.toUpperCase()}.`;
+    const title = `${inputFormat.toUpperCase()} to ${outputFormat.toUpperCase()} Converter`;
     const url = window.location.href;
 
-    const themes = inputFormat.toUpperCase() == outputFormat.toUpperCase() ? [inputFormat] : [inputFormat, outputFormat];
+    const themes =[inputFormat, outputFormat];
 
     return <>
         <Helmet>
