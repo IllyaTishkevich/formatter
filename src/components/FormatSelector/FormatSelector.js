@@ -8,7 +8,7 @@ const FormatSelector = ({ type, current, opposite, handleConvert }) => {
     const handleChange = useCallback((e) => {
         const newFormat = e.target.value
 
-        if (newFormat == opposite) {
+        if (newFormat === opposite) {
             navigate(`/${newFormat}`)
             handleConvert();
         } else {
