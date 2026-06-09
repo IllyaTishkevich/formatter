@@ -7,7 +7,7 @@ import { ActionButton, ActionsBlock, useActions } from "../../components/Actions
 import InfoBlock from "../../components/Info";
 import useParams from "../../core/params";
 
-const ConverterPage = () => {
+const FormatterPage = () => {
     const { input } = useSelector((s) => s.converter)
     const { inputFormat, outputFormat } = useParams()
 
@@ -20,15 +20,11 @@ const ConverterPage = () => {
         }
     }, [inputFormat, outputFormat])
 
-    const description = inputFormat.toUpperCase() == outputFormat.toUpperCase()
-        ? `Format / Beautify your ${outputFormat.toUpperCase()}. Minify and Validate ${outputFormat.toUpperCase()}.`
-        : `Convert ${inputFormat.toUpperCase()} to ${outputFormat.toUpperCase()}. Minify, Prettify and Validate ${outputFormat.toUpperCase()}.`;
-    const title = inputFormat.toUpperCase() == outputFormat.toUpperCase()
-        ? `${inputFormat.toUpperCase()} Formatter`
-        : `${inputFormat.toUpperCase()} to ${outputFormat.toUpperCase()} Converter`;
+    const description = `Format / Beautify your ${outputFormat.toUpperCase()}. Minify and Validate ${outputFormat.toUpperCase()}.`;
+    const title = `${inputFormat.toUpperCase()} Formatter`;
     const url = window.location.href;
 
-    const themes = inputFormat.toUpperCase() == outputFormat.toUpperCase() ? [inputFormat] : [inputFormat, outputFormat];
+    const themes = [inputFormat];
 
     return <>
         <Helmet>
@@ -54,7 +50,7 @@ const ConverterPage = () => {
                     <Input />
                 </div>
                 <ActionsBlock>
-                    <ActionButton handler={handleConvert} label={ `Convert to ${outputFormat.toUpperCase()}` } />
+                    <ActionButton handler={handleConvert} label={ `Beautify ${outputFormat.toUpperCase()}` } />
                     <ActionButton handler={handleValidate} label='Validate' />
                 </ActionsBlock>
                 <div className="bg-body-tertiary border rounded-3 p-1 panel panel-output">
@@ -66,4 +62,4 @@ const ConverterPage = () => {
     </>
 };
 
-export default ConverterPage;
+export default FormatterPage;
