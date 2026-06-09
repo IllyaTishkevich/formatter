@@ -23,11 +23,11 @@ const useActions = () => {
         addSuccessMessage('Success!');
     }, [inputFormat, outputFormat, input])
 
-    const handleConvert = useCallback((inputFormat, outputFormat, string = false) => {
+    const handleConvert = useCallback((string = false) => {
         try {
             let result;
 
-            if (string !== false) {
+            if (typeof string == 'string') {
                 result = convert(
                     string,
                     inputFormat,

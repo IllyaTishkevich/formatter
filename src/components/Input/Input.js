@@ -42,7 +42,7 @@ const  Input = () => {
     const handlePaste = useCallback(() => {
         const value = editorRef.current.getValue();
 
-        handleConvert(inputFormat, outputFormat, value);
+        handleConvert(value);
     }, [inputFormat, outputFormat, handleConvert])
 
     const handleUndo = () => {

@@ -3,8 +3,7 @@ import Output from "../../components/Output";
 import { Helmet } from "react-helmet-async";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
-import { ActionButton, ActionsBlock } from "../../components/Actions";
-import useActions from "../../components/Actions/hook";
+import { ActionButton, ActionsBlock, useActions } from "../../components/Actions";
 import useParams from "../../core/params";
 
 const ConverterPage = () => {
@@ -16,7 +15,7 @@ const ConverterPage = () => {
 
     useEffect(() => {
         if (input.length > 0) {
-            handleConvert(inputFormat, outputFormat);
+            handleConvert();
         }
     }, [inputFormat, outputFormat])
 
@@ -50,7 +49,7 @@ const ConverterPage = () => {
                     <Input />
                 </div>
                 <ActionsBlock>
-                    <ActionButton handler={() => handleConvert(inputFormat, outputFormat)} label='Convert' />
+                    <ActionButton handler={handleConvert} label='Convert' />
                     <ActionButton handler={handleValidate} label='Validate' />
                 </ActionsBlock>
                 <div className="bg-body-tertiary border rounded-3 p-1 panel panel-output">

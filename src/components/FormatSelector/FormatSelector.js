@@ -11,10 +11,10 @@ const FormatSelector = ({ type, current, opposite, handleConvert }) => {
 
         if (type === 'input') {
             navigate(`/${newFormat}/${opposite}`)
-            handleConvert(newFormat, opposite);
+            handleConvert();
         } else {
             navigate(`/${opposite}/${newFormat}`)
-            handleConvert(opposite, newFormat);
+            handleConvert();
         }
     }, [type, current, opposite]);
 
