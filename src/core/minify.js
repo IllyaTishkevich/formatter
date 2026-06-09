@@ -16,9 +16,7 @@ export function minifyByFormat(format, text) {
         case 'xml': {
             const parsed = xmlParser.parse(text)
 
-            const xml = compactXmlBuilder.build(parsed)
-
-            return `<?xml version="1.0" encoding="UTF-8"?>${xml}`
+            return compactXmlBuilder.build(parsed)
         }
 
         case 'yaml': {

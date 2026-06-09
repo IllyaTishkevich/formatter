@@ -7,10 +7,16 @@ import { setOutput } from "../../store/converterSlice";
 import useParams from "../../core/params";
 import { useActions } from "../Actions";
 
-function Output() {
-    const dispatch = useDispatch();
+const Output = () => {
     const { inputFormat, outputFormat } = useParams()
-    const { handleConvert } = useActions()
+    const {
+        handleConvert,
+        handleMinify,
+        handleCleanOutput,
+        handleCopy,
+        setEditorRef,
+        handleDownloadOutput
+    } = useActions()
     const output = useSelector((s) => s.converter.output)
     const [stats, setStats] = useState({
         line: 1,
@@ -20,50 +26,6 @@ function Output() {
     })
     const editorRef = useRef(null)
 
-    const handleCopy = async () => {
-        const text =
-            typeof output === 'string'
-                ? output
-                : JSON.stringify(output, null, 2)
-
-        await navigator.clipboard.writeText(text)
-    }
-
-    const handleDownload = () => {
-        const text =
-            typeof output === 'string'
-                ? output
-                : JSON.stringify(output, null, 2)
-
-        const blob = new Blob([text], { type: 'text/plain' })
-        const url = URL.createObjectURL(blob)
-
-        const a = document.createElement('a')
-        a.href = url
-        a.download = `${outputFormat}.txt`
-        a.click()
-
-        URL.revokeObjectURL(url)
-    }
-
-    const handleClean = () => {
-        dispatch(setOutput(''));
-    }
-
-    const handleMinify = () => {
-        try {
-            const current =
-                typeof output === 'string'
-                    ? output
-                    : JSON.stringify(output, null, 2)
-
-            const minified = minifyByFormat(outputFormat, current)
-
-            editorRef.current.setValue(minified)
-        } catch (e) {
-            console.error(e)
-        }
-    }
 
     const getLanguage = (format) => {
         switch (format) {
@@ -100,7 +62,7 @@ function Output() {
                     </button>
 
                     <button title="Download" className="btn btn-light btn-sm px-1 py-0"
-                            onClick={handleDownload}>
+                            onClick={handleDownloadOutput}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              className="bi bi-download" viewBox="0 0 16 16">
                             <path
@@ -110,7 +72,7 @@ function Output() {
                         </svg>
                     </button>
 
-                    <button title="Clean" className="btn btn-light btn-sm px-1 py-0" onClick={handleClean}>
+                    <button title="Clean" className="btn btn-light btn-sm px-1 py-0" onClick={handleCleanOutput}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              className="bi bi-trash" viewBox="0 0 16 16">
                             <path
@@ -147,7 +109,7 @@ function Output() {
                         wordWrap: 'on'
                     }}
                     onMount={(editor) => {
-                        editorRef.current = editor;
+                        setEditorRef(editor)
                         const updateStats = () => {
                             const model = editor.getModel()
                             const pos = editor.getPosition()

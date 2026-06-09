@@ -1,16 +1,54 @@
-import {useCallback, useMemo, Children} from "react";
+import {useCallback, Children, useRef} from "react";
 import useMessage from "../../core/message";
 import { useDispatch, useSelector } from "react-redux";
 import {validateByFormat} from "../../core/validator";
 import {convert} from "../../core/converterEngine";
-import {setOutput} from "../../store/converterSlice";
+import {setInput, setOutput} from "../../store/converterSlice";
 import useParams from "../../core/params";
+import {minifyByFormat} from "../../core/minify";
+
+const makeDownload = (data, fileName) => {
+    const text =
+        typeof data === 'string'
+            ? data
+            : JSON.stringify(data, null, 2)
+
+    const blob = new Blob([text], { type: 'text/plain' })
+    const url = URL.createObjectURL(blob)
+
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `${fileName}.txt`
+    a.click()
+
+    URL.revokeObjectURL(url)
+}
 
 const useActions = () => {
+    const editorRef = useRef(null)
     const { inputFormat, outputFormat } = useParams();
     const { addErrorMessage, addSuccessMessage, clearMessage } = useMessage();
     const dispatch = useDispatch()
-    const { input } = useSelector((s) => s.converter)
+    const { input, output } = useSelector((s) => s.converter)
+
+    const setEditorRef = (editor) => {
+        editorRef.current = editor;
+    }
+
+    const handleMinify = useCallback(() => {
+        try {
+            const current =
+                typeof output === 'string'
+                    ? output
+                    : JSON.stringify(output, null, 2)
+
+            const minified = minifyByFormat(outputFormat, current)
+
+            dispatch(setOutput(minified))
+        } catch (e) {
+            console.error(e)
+        }
+    }, [input])
 
     const handleValidate = useCallback(() => {
         const res = validateByFormat(inputFormat, input)
@@ -48,9 +86,55 @@ const useActions = () => {
         }
     }, [inputFormat, outputFormat, input]);
 
+    const handleCleanOutput = useCallback(() => {
+        dispatch(setOutput(''));
+    }, [output])
+
+
+    const handleCleanInput = useCallback(() => {
+        dispatch(setInput(''));
+        dispatch(setOutput(''));
+    }, [output])
+
+    const handleCopy = useCallback( () => {
+        navigator.clipboard.writeText(editorRef.current.getValue())
+    }, [editorRef])
+
+    const handleUndo = () => {
+        editorRef.current.trigger('keyboard', 'undo')
+    }
+
+    const handleRedo = () => {
+        editorRef.current.trigger('keyboard', 'redo')
+    }
+
+    const handleDownloadOutput = useCallback(() => {
+        makeDownload(output, outputFormat)
+    }, [output, outputFormat])
+
+    const handleDownloadInput = useCallback(() => {
+        makeDownload(input, inputFormat)
+    }, [input, inputFormat])
+
+    const handlePaste = useCallback(() => {
+        const value = editorRef.current.getValue();
+
+        handleConvert(value);
+    }, [inputFormat, outputFormat, handleConvert])
+
     return {
         handleConvert,
-        handleValidate
+        handleValidate,
+        handleMinify,
+        handleCleanOutput,
+        handleCleanInput,
+        setEditorRef,
+        handleCopy,
+        handleUndo,
+        handleRedo,
+        handleDownloadOutput,
+        handleDownloadInput,
+        handlePaste
     }
 }
 

@@ -11,7 +11,7 @@ const FormatterPage = () => {
     const { input } = useSelector((s) => s.converter)
     const { inputFormat, outputFormat } = useParams()
 
-    const { handleConvert, handleValidate } = useActions()
+    const { handleConvert, handleValidate, handleMinify } = useActions()
 
 
     useEffect(() => {
@@ -51,6 +51,7 @@ const FormatterPage = () => {
                 </div>
                 <ActionsBlock>
                     <ActionButton handler={handleConvert} label={ `Beautify ${outputFormat.toUpperCase()}` } />
+                    <ActionButton handler={handleMinify} label='Minify' />
                     <ActionButton handler={handleValidate} label='Validate' />
                 </ActionsBlock>
                 <div className="bg-body-tertiary border rounded-3 p-1 panel panel-output">
