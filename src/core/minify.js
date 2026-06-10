@@ -7,25 +7,40 @@ const compactXmlBuilder = new XMLBuilder({
     format: false,
 })
 
-export function minifyByFormat(format, text) {
-    switch (format) {
+export function minifyByFormat(inputFormat,outputFormat, text) {
+    let result = '';
+    switch (inputFormat) {
         case 'json': {
-            return JSON.stringify(JSON.parse(text))
+            result = JSON.parse(text);
+            break;
         }
 
         case 'xml': {
-            const parsed = xmlParser.parse(text)
-
-            return compactXmlBuilder.build(parsed)
+            result = xmlParser.parse(text)
+            break;
         }
 
         case 'yaml': {
-            const parsed = yaml.load(text)
+            result = yaml.load(text);
+            break;
+        }
+    }
 
-            return JSON.stringify(parsed)
+
+    switch (outputFormat) {
+        case 'json': {
+            return JSON.stringify(result)
         }
 
-        default:
-            return text
+        case 'xml': {
+            return compactXmlBuilder.build(result)
+        }
+
+        case 'yaml': {
+            return yaml.dump(result, {
+                flowLevel: 0,
+                lineWidth: -1,
+            });
+        }
     }
 }

@@ -37,18 +37,13 @@ const useActions = () => {
 
     const handleMinify = useCallback(() => {
         try {
-            const current =
-                typeof input === 'string'
-                    ? input
-                    : JSON.stringify(input, null, 2)
-
-            const minified = minifyByFormat(outputFormat, current)
+            const minified = minifyByFormat(inputFormat, outputFormat, input)
 
             dispatch(setOutput(minified))
         } catch (e) {
-            console.error(e)
+            addErrorMessage(e.message);
         }
-    }, [input, output, outputFormat])
+    }, [input, inputFormat, outputFormat])
 
     const handleValidate = useCallback(() => {
         const res = validateByFormat(inputFormat, input)
