@@ -113,7 +113,7 @@ const PrivacyPolicy = () => {
                 <p>
                     If you have questions, contact us at{" "}
                     <a href="mailto:relikt.ilya@gmail.com">
-                        support@validformat.online
+                        relikt.ilya@gmail.com
                     </a>
                 </p>
 
