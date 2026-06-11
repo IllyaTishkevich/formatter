@@ -50,7 +50,7 @@ const PrivacyPolicy = () => {
                 <h5 className="mt-4 fw-semibold">1. Overview</h5>
                 <p>
                     This Privacy Policy explains how <strong>validformat.online</strong> handles information when you use our format conversion tool.
-                    We provide a web-based tool for converting, formatting, validating, and minifying data formats such as JSON, XML, YAML, and JWT.
+                    We provide a web-based tool for converting, formatting, validating, and minifying data formats such as JSON, XML and YAML.
                 </p>
 
                 <h5 className="mt-4 fw-semibold">2. Information We Do NOT Collect</h5>
@@ -68,7 +68,7 @@ const PrivacyPolicy = () => {
                 </p>
                 <ul>
                     <li>Editor input content</li>
-                    <li>Selected formats (JSON, XML, YAML, JWT)</li>
+                    <li>Selected formats (JSON, XML, YAML)</li>
                     <li>UI preferences</li>
                 </ul>
                 <p className="text-muted">
@@ -112,7 +112,7 @@ const PrivacyPolicy = () => {
                 <h5 className="mt-4 fw-semibold">10. Contact</h5>
                 <p>
                     If you have questions, contact us at{" "}
-                    <a href="mailto:support@validformat.online">
+                    <a href="mailto:relikt.ilya@gmail.com">
                         support@validformat.online
                     </a>
                 </p>
