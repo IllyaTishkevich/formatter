@@ -43,8 +43,10 @@ const FormatterPage = () => {
             <meta property="og:url" content={ url } />
             <meta name="twitter:title" content={ title } />
             <meta name="twitter:description" content={ description } />
+            <link rel="canonical" href={ url } />
         </Helmet>
         <main className="py-3 px-5">
+            <h1 className="display-6 fw-normal mb-3">{ title }</h1>
             <div className="d-flex flex-column flex-xl-row">
                 <div className="bg-body-tertiary border rounded-3 p-1 panel panel-input">
                     <Input />
