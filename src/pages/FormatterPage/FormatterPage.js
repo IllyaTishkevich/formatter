@@ -29,19 +29,19 @@ const FormatterPage = () => {
     return <>
         <Helmet>
             <title>
-                { title }
+                { title + '| ValidFormat' }
             </title>
             <meta
                 name="description"
                 content={ description }
             />
-            <meta property="og:title" content={ title } />
+            <meta property="og:title" content={ title + '| ValidFormat' } />
             <meta
                 property="og:description"
                 content={ description }
             />
             <meta property="og:url" content={ url } />
-            <meta name="twitter:title" content={ title } />
+            <meta name="twitter:title" content={ title + '| ValidFormat' } />
             <meta name="twitter:description" content={ description } />
             <link rel="canonical" href={ url } />
         </Helmet>

@@ -29,20 +29,20 @@ const ConverterPage = () => {
     return <>
         <Helmet>
             <title>
-                { title }
+                { title + '| ValidFormat' }
             </title>
             <meta
                 name="description"
                 content={ description }
             />
-            <meta property="og:title" content={ title } />
+            <meta property="og:title" content={ title + '| ValidFormat' } />
             <meta
                 property="og:description"
                 content={ description }
             />
             <link rel="canonical" href={ url } />
             <meta property="og:url" content={ url } />
-            <meta name="twitter:title" content={ title } />
+            <meta name="twitter:title" content={ title + '| ValidFormat' } />
             <meta name="twitter:description" content={ description } />
         </Helmet>
         <main className="py-3 px-5">
