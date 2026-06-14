@@ -12,10 +12,6 @@
     </url>
 
     <url>
-        <loc>https://validformat.online/json/json</loc>
-    </url>
-
-    <url>
         <loc>https://validformat.online/json/xml</loc>
     </url>
 
@@ -32,10 +28,6 @@
     </url>
 
     <url>
-        <loc>https://validformat.online/xml/xml</loc>
-    </url>
-
-    <url>
         <loc>https://validformat.online/xml/yaml</loc>
     </url>
 
@@ -49,10 +41,6 @@
 
     <url>
         <loc>https://validformat.online/yaml/xml</loc>
-    </url>
-
-    <url>
-        <loc>https://validformat.online/yaml/yaml</loc>
     </url>
 
     <url>
