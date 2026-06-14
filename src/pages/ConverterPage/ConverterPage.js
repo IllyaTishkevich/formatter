@@ -20,8 +20,8 @@ const ConverterPage = () => {
         }
     }, [inputFormat, outputFormat])
 
-    const description = `Convert ${inputFormat.toUpperCase()} to ${outputFormat.toUpperCase()}. Minify, Prettify and Validate ${outputFormat.toUpperCase()}.`;
-    const title = `${inputFormat.toUpperCase()} to ${outputFormat.toUpperCase()} Converter`;
+    const description = `Convert ${inputFormat.toUpperCase()} to ${outputFormat.toUpperCase()} instantly online. Validate, format, and transform your data with a free and secure ${inputFormat.toUpperCase()} to ${outputFormat.toUpperCase()} converter. No registration required.`
+    const title = `${inputFormat.toUpperCase()} to ${outputFormat.toUpperCase()} Converter Online – Free, Fast & Secure`;
     const url = window.location.href;
 
     const themes =[inputFormat, outputFormat];

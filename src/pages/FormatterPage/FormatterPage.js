@@ -20,8 +20,8 @@ const FormatterPage = () => {
         }
     }, [inputFormat, outputFormat])
 
-    const description = `Format / Beautify your ${outputFormat.toUpperCase()}. Minify and Validate ${outputFormat.toUpperCase()}.`;
-    const title = `${inputFormat.toUpperCase()} Formatter`;
+    const description = `Format, validate, prettify, and minify ${inputFormat.toUpperCase()} online. Free ${inputFormat.toUpperCase()} formatter and validator with instant syntax checking and error detection.`;
+    const title = `${inputFormat.toUpperCase()} Formatter & Validator Online – Prettify, Minify and Validate ${inputFormat.toUpperCase()}`;
     const url = window.location.href;
 
     const themes = [inputFormat];
