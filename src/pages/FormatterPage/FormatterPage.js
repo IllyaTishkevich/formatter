@@ -29,6 +29,7 @@ const FormatterPage = () => {
     const themes = [inputFormat];
 
     return <>
+        { isPrerender ? (
         <Helmet>
             <title>
                 { title + '| ValidFormat' }
@@ -47,7 +48,7 @@ const FormatterPage = () => {
             <meta name="twitter:description" content={ description } />
             <link rel="canonical" href={ window.location.pathname === '/json' ? domainName : url } />
         </Helmet>
-        { isPrerender ? <div className="prerender-placeholder" /> : (
+        ) : (
         <main className="py-3 px-5">
             <h1 className="display-6 fw-normal mb-3">{ `${outputFormat.toUpperCase()} Formatter` }</h1>
             <div className="d-flex flex-column flex-xl-row">

@@ -31,6 +31,7 @@ const ConverterPage = () => {
     const themes =[inputFormat, outputFormat];
 
     return <>
+        { isPrerender ? (
         <Helmet>
             <title>
                 { title + '| ValidFormat' }
@@ -49,7 +50,7 @@ const ConverterPage = () => {
             <meta name="twitter:title" content={ title + '| ValidFormat' } />
             <meta name="twitter:description" content={ description } />
         </Helmet>
-        { isPrerender ? <div className="prerender-placeholder" /> : (
+        ) : (
         <main className="py-3 px-5">
             <h1 className="display-6 fw-normal mb-3">{ `${inputFormat.toUpperCase()} to ${outputFormat.toUpperCase()} Converter Online` }</h1>
             <div className="d-flex flex-column flex-xl-row">
