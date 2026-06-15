@@ -13,6 +13,8 @@ const ConverterPage = () => {
 
     const { handleConvert, handleValidate } = useActions()
 
+    const domainName = process.env.PUBLIC_URL;
+
 
     useEffect(() => {
         if (input.length > 0) {
@@ -22,7 +24,7 @@ const ConverterPage = () => {
 
     const description = `Convert ${inputFormat.toUpperCase()} to ${outputFormat.toUpperCase()} instantly online. Validate, format, and transform your data with a free and secure ${inputFormat.toUpperCase()} to ${outputFormat.toUpperCase()} converter. No registration required.`
     const title = `${inputFormat.toUpperCase()} to ${outputFormat.toUpperCase()} Converter Online – Free, Fast & Secure`;
-    const url = window.location.href;
+    const url = `${domainName}${window.location.pathname}`;
 
     const themes =[inputFormat, outputFormat];
 

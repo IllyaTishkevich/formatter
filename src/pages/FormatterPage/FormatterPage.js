@@ -12,7 +12,7 @@ const FormatterPage = () => {
     const { inputFormat, outputFormat } = useParams()
 
     const { handleConvert, handleValidate, handleMinify } = useActions()
-
+    const domainName = process.env.PUBLIC_URL;
 
     useEffect(() => {
         if (input.length > 0) {
@@ -22,7 +22,7 @@ const FormatterPage = () => {
 
     const description = `Format, validate, prettify, and minify ${inputFormat.toUpperCase()} online. Free ${inputFormat.toUpperCase()} formatter and validator with instant syntax checking and error detection.`;
     const title = `${inputFormat.toUpperCase()} Formatter & Validator Online – Prettify, Minify and Validate ${inputFormat.toUpperCase()}`;
-    const url = window.location.href;
+    const url = `${domainName}${window.location.pathname}`;
 
     const themes = [inputFormat];
 
@@ -43,7 +43,7 @@ const FormatterPage = () => {
             <meta property="og:url" content={ url } />
             <meta name="twitter:title" content={ title + '| ValidFormat' } />
             <meta name="twitter:description" content={ description } />
-            <link rel="canonical" href={ window.location.pathname === '/json' ? window.location.origin : url } />
+            <link rel="canonical" href={ window.location.pathname === '/json' ? domainName : url } />
         </Helmet>
         <main className="py-3 px-5">
             <h1 className="display-6 fw-normal mb-3">{ `${outputFormat.toUpperCase()} Formatter` }</h1>
