@@ -43,7 +43,7 @@ const FormatterPage = () => {
             <meta property="og:url" content={ url } />
             <meta name="twitter:title" content={ title + '| ValidFormat' } />
             <meta name="twitter:description" content={ description } />
-            <link rel="canonical" href={ url } />
+            <link rel="canonical" href={ window.location.pathname === '/json' ? window.location.origin : url } />
         </Helmet>
         <main className="py-3 px-5">
             <h1 className="display-6 fw-normal mb-3">{ `${outputFormat.toUpperCase()} Formatter` }</h1>
