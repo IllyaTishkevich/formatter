@@ -9,7 +9,9 @@ import useParams from "../../core/params";
 
 const FormatterPage = () => {
     const { input } = useSelector((s) => s.converter)
-    const { inputFormat, outputFormat } = useParams()
+    const { inputFormat, outputFormat } = useParams();
+    const isPrerender =
+        navigator.userAgent === 'ReactSnap';
 
     const { handleConvert, handleValidate, handleMinify } = useActions()
     const domainName = process.env.PUBLIC_URL;
@@ -45,6 +47,7 @@ const FormatterPage = () => {
             <meta name="twitter:description" content={ description } />
             <link rel="canonical" href={ window.location.pathname === '/json' ? domainName : url } />
         </Helmet>
+        { isPrerender ? <div className="prerender-placeholder" /> : (
         <main className="py-3 px-5">
             <h1 className="display-6 fw-normal mb-3">{ `${outputFormat.toUpperCase()} Formatter` }</h1>
             <div className="d-flex flex-column flex-xl-row">
@@ -62,6 +65,7 @@ const FormatterPage = () => {
             </div>
             <InfoBlock themes={themes} />
         </main>
+            )}
     </>
 };
 
