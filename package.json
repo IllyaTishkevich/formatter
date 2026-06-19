@@ -16,6 +16,7 @@
     "fast-xml-parser": "^5.8.0",
     "js-yaml": "^4.1.1",
     "jwt-decode": "^4.0.0",
+    "papaparse": "^5.5.4",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-helmet-async": "^3.0.0",
@@ -33,6 +34,10 @@
   },
   "reactSnap": {
     "inlineCss": true,
+    "puppeteerArgs": [
+      "--no-sandbox"
+    ],
+    "source": "build",
     "include": [
       "/",
       "/json",

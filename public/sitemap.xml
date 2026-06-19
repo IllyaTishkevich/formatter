@@ -20,6 +20,10 @@
     </url>
 
     <url>
+        <loc>https://validformat.online/json/csv</loc>
+    </url>
+
+    <url>
         <loc>https://validformat.online/xml</loc>
     </url>
 
@@ -32,6 +36,10 @@
     </url>
 
     <url>
+        <loc>https://validformat.online/xml/csv</loc>
+    </url>
+
+    <url>
         <loc>https://validformat.online/yaml</loc>
     </url>
 
@@ -41,6 +49,26 @@
 
     <url>
         <loc>https://validformat.online/yaml/xml</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/yaml/csv</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/csv</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/csv/json</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/csv/xml</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/csv/yaml</loc>
     </url>
 
     <url>

@@ -1,8 +1,7 @@
 import { XMLBuilder, XMLParser } from 'fast-xml-parser'
 import { parseYaml, toYaml } from './yaml'
 import { addXmlDeclaration } from '../utils/xml';
-import Papa from 'papaparse'
-import { flatten, unflatten, minifyCSV } from "../utils/csv";
+import { minifyCSV } from "../utils/csv";
 
 const parser = new XMLParser(
     {
@@ -24,11 +23,10 @@ const builder = new XMLBuilder(
     }
 )
 
-export function convert(input, from, to) {
+export function formatter(input, format) {
     let data
 
-    // parse input in object
-    switch (from) {
+    switch (format) {
         case 'json':
             data = JSON.parse(input)
             break
@@ -44,20 +42,14 @@ export function convert(input, from, to) {
             break
 
         case 'csv':
-            const flat = Papa.parse(minifyCSV(input), {
-                header: true,
-                skipEmptyLines: true
-            }).data
-
-            data = flat.map(unflatten).shift()
+            data = minifyCSV(input);
             break
 
         default:
             throw new Error('Unsupported input format')
     }
 
-    // convert to output
-    switch (to) {
+    switch (format) {
         case 'json':
             return JSON.stringify(data, null, 2)
 
@@ -70,9 +62,7 @@ export function convert(input, from, to) {
             return res.data
 
         case 'csv':
-            const flat = flatten(data)
-
-            return Papa.unparse([flat])
+            return minifyCSV(data)
 
         default:
             throw new Error('Unsupported output format')

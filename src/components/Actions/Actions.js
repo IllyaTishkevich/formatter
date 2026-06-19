@@ -6,6 +6,7 @@ import {convert} from "../../core/converterEngine";
 import {setInput, setOutput} from "../../store/converterSlice";
 import useParams from "../../core/params";
 import {minifyByFormat} from "../../core/minify";
+import {formatter} from "../../core/format";
 
 const makeDownload = (data, fileName) => {
     const text =
@@ -81,6 +82,29 @@ const useActions = () => {
         }
     }, [inputFormat, outputFormat, input]);
 
+    const handleFormat = useCallback((string = false) => {
+        try {
+            let result;
+
+            if (typeof string == 'string') {
+                result = formatter(
+                    string,
+                    outputFormat
+                )
+            } else {
+                result = formatter(
+                    input,
+                    outputFormat
+                )
+            }
+
+            dispatch(setOutput(result));
+            clearMessage();
+        } catch (e) {
+            addErrorMessage(e.message)
+        }
+    }, [inputFormat, outputFormat, input]);
+
     const handleCleanOutput = useCallback(() => {
         dispatch(setOutput(''));
     }, [output])
@@ -129,7 +153,8 @@ const useActions = () => {
         handleRedo,
         handleDownloadOutput,
         handleDownloadInput,
-        handlePaste
+        handlePaste,
+        handleFormat
     }
 }
 

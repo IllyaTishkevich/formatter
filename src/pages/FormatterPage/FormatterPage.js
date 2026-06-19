@@ -13,7 +13,7 @@ const FormatterPage = () => {
     const isPrerender =
         navigator.userAgent === 'ReactSnap';
 
-    const { handleConvert, handleValidate, handleMinify } = useActions()
+    const { handleConvert, handleValidate, handleMinify, handleFormat } = useActions()
     const domainName = process.env.PUBLIC_URL;
 
     useEffect(() => {
@@ -56,7 +56,7 @@ const FormatterPage = () => {
                     <Input />
                 </div>
                 <ActionsBlock>
-                    <ActionButton handler={handleConvert} label={ `Beautify ${outputFormat.toUpperCase()}` } />
+                    <ActionButton handler={handleFormat} label={ `Beautify ${outputFormat.toUpperCase()}` } />
                     <ActionButton handler={handleMinify} label='Minify' />
                     <ActionButton handler={handleValidate} label='Validate' />
                 </ActionsBlock>

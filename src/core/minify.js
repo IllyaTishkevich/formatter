@@ -1,5 +1,6 @@
 import { XMLParser, XMLBuilder } from 'fast-xml-parser'
 import yaml from 'js-yaml'
+import { minifyCSV } from "../utils/csv";
 
 const xmlParser = new XMLParser()
 
@@ -24,6 +25,11 @@ export function minifyByFormat(inputFormat,outputFormat, text) {
             result = yaml.load(text);
             break;
         }
+
+        case 'csv': {
+            result =  text
+            break;
+        }
     }
 
 
@@ -41,6 +47,10 @@ export function minifyByFormat(inputFormat,outputFormat, text) {
                 flowLevel: 0,
                 lineWidth: -1,
             });
+        }
+
+        case 'csv': {
+            return minifyCSV(result);
         }
     }
 }
