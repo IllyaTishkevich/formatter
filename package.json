@@ -33,7 +33,7 @@
     "eject": "react-scripts eject"
   },
   "reactSnap": {
-    "inlineCss": true,
+    "inlineCss": false,
     "puppeteerArgs": [
       "--no-sandbox"
     ],
