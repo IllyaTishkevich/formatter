@@ -7,9 +7,9 @@ const Header = () => {
                     {/*<a href="/" className="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">*/}
                     {/*    <Logo height='24' img='icon'/>*/}
                     {/*</a>*/}
-                    <h6 className="mb-0">
+                    <span className="mb-0">
                         One Tool. Every <span className="text-primary">Format</span>.
-                    </h6>
+                    </span>
                 </div>
             </div>
         </header>

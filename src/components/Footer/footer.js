@@ -19,71 +19,67 @@ const Footer = () => {
                         </div>
 
                         <div className="col mb-3 align-items-end text-end">
-                            <h5>JSON</h5>
                             <ul className="nav flex-column ">
                                 <li className="nav-item mb-2">
-                                    <Link to="/json/xml" className="nav-link p-0 text-body-secondary">To Xml</Link>
+                                    <Link to="/json/xml" className="nav-link p-0 text-body-secondary">JSON To Xml</Link>
                                 </li>
                                 <li className="nav-item mb-2">
-                                    <Link to="/json/yaml" className="nav-link p-0 text-body-secondary">To Yaml</Link>
+                                    <Link to="/json/yaml" className="nav-link p-0 text-body-secondary">JSON To Yaml</Link>
                                 </li>
                                 <li className="nav-item mb-2">
-                                    <Link to="/json/csv" className="nav-link p-0 text-body-secondary">To CSV</Link>
+                                    <Link to="/json/csv" className="nav-link p-0 text-body-secondary">JSON To CSV</Link>
                                 </li>
                                 <li className="nav-item mb-2">
-                                    <Link to="/json" className="nav-link p-0 text-body-secondary">Format</Link>
+                                    <Link to="/json" className="nav-link p-0 text-body-secondary">JSON Format</Link>
                                 </li>
                             </ul>
                         </div>
                         <div className="col mb-3 align-items-end text-end">
-                            <h5>XML</h5>
                             <ul className="nav flex-column ">
                                 <li className="nav-item mb-2">
-                                    <Link to="/xml/json" className="nav-link p-0 text-body-secondary">To JSON</Link>
+                                    <Link to="/xml/json" className="nav-link p-0 text-body-secondary">XML To JSON</Link>
                                 </li>
                                 <li className="nav-item mb-2">
-                                    <Link to="/xml/yaml" className="nav-link p-0 text-body-secondary">To Yaml</Link>
+                                    <Link to="/xml/yaml" className="nav-link p-0 text-body-secondary">XML To Yaml</Link>
                                 </li>
                                 <li className="nav-item mb-2">
-                                    <Link to="/xml/csv" className="nav-link p-0 text-body-secondary">To CSV</Link>
+                                    <Link to="/xml/csv" className="nav-link p-0 text-body-secondary">XML To CSV</Link>
                                 </li>
                                 <li className="nav-item mb-2">
-                                    <Link to="/xml" className="nav-link p-0 text-body-secondary">Format</Link>
+                                    <Link to="/xml" className="nav-link p-0 text-body-secondary">XML Format</Link>
                                 </li>
                             </ul>
                         </div>
                         <div className="col mb-3 align-items-end text-end">
-                            <h5>Yaml</h5>
                             <ul className="nav flex-column ">
                                 <li className="nav-item mb-2">
-                                    <Link to="/yaml/json" className="nav-link p-0 text-body-secondary">To JSON</Link>
+                                    <Link to="/yaml/json" className="nav-link p-0 text-body-secondary">Yaml To JSON</Link>
                                 </li>
                                 <li className="nav-item mb-2">
-                                    <Link to="/yaml/xml" className="nav-link p-0 text-body-secondary">To XML</Link>
+                                    <Link to="/yaml/xml" className="nav-link p-0 text-body-secondary">Yaml To XML</Link>
                                 </li>
                                 <li className="nav-item mb-2">
-                                    <Link to="/yaml/csv" className="nav-link p-0 text-body-secondary">To CSV</Link>
+                                    <Link to="/yaml/csv" className="nav-link p-0 text-body-secondary">Yaml To CSV</Link>
                                 </li>
                                 <li className="nav-item mb-2">
-                                    <Link to="/yaml" className="nav-link p-0 text-body-secondary">Format</Link>
+                                    <Link to="/yaml" className="nav-link p-0 text-body-secondary">Yaml Format</Link>
                                 </li>
                             </ul>
                         </div>
 
                         <div className="col mb-3 align-items-end text-end">
-                            <h5>CSV</h5>
                             <ul className="nav flex-column ">
                                 <li className="nav-item mb-2">
-                                    <Link to="/csv/json" className="nav-link p-0 text-body-secondary">To JSON</Link>
+                                    <Link to="/csv/json" className="nav-link p-0 text-body-secondary">CSV To JSON</Link>
                                 </li>
                                 <li className="nav-item mb-2">
-                                    <Link to="/csv/xml" className="nav-link p-0 text-body-secondary">To XML</Link>
+                                    <Link to="/csv/xml" className="nav-link p-0 text-body-secondary">CSV To XML</Link>
                                 </li>
                                 <li className="nav-item mb-2">
-                                    <Link to="/csv/yaml" className="nav-link p-0 text-body-secondary">To Yaml</Link>
+                                    <Link to="/csv/yaml" className="nav-link p-0 text-body-secondary">CSV To Yaml</Link>
                                 </li>
                                 <li className="nav-item mb-2">
-                                    <Link to="/csv" className="nav-link p-0 text-body-secondary">Format</Link>
+                                    <Link to="/csv" className="nav-link p-0 text-body-secondary">CSV Format</Link>
                                 </li>
                             </ul>
                         </div>

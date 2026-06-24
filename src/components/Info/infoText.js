@@ -1,12 +1,12 @@
 const json = () => {
     return <div className="card-body">
-            <h5 className="card-title">JSON</h5>
+            <h2 className="card-title">JSON</h2>
             <p className="card-text">
                 JSON is a lightweight text-based data format commonly used for APIs,
                 web applications, and data exchange.
             </p>
 
-            <h6>Rules</h6>
+            <h3>Rules</h3>
             <ul>
                 <li>Data is organized using objects {} and arrays [].</li>
                 <li>Object keys must be enclosed in double quotes.</li>
@@ -15,7 +15,7 @@ const json = () => {
                 <li>Supported types: strings, numbers, booleans, null, objects, and arrays.</li>
             </ul>
 
-            <h6>Validation</h6>
+            <h3>Validation</h3>
             <ul>
                 <li>All brackets and braces must be properly closed.</li>
                 <li>Keys and strings must use double quotes.</li>
@@ -27,13 +27,13 @@ const json = () => {
 
 const xml = () => {
     return <div className="card-body">
-            <h5 className="card-title">XML</h5>
+            <h2 className="card-title">XML</h2>
             <p className="card-text">
                 XML is a markup language used to store and transport structured data.
                 It is widely used in integrations, documents, and enterprise systems.
             </p>
 
-            <h6>Rules</h6>
+            <h3>Rules</h3>
             <ul>
                 <li>Every opening tag must have a matching closing tag.</li>
                 <li>Elements must be properly nested.</li>
@@ -42,7 +42,7 @@ const xml = () => {
                 <li>Attributes must be enclosed in quotes.</li>
             </ul>
 
-            <h6>Validation</h6>
+            <h3>Validation</h3>
             <ul>
                 <li>All tags must be properly closed.</li>
                 <li>Elements must be correctly nested.</li>
@@ -55,13 +55,13 @@ const xml = () => {
 
 const yaml = () => {
     return <div className="card-body">
-            <h5 className="card-title">YAML</h5>
+            <h2 className="card-title">YAML</h2>
             <p className="card-text">
                 YAML is a human-readable data serialization format commonly used for
                 configuration files, automation tools, and cloud infrastructure definitions.
             </p>
 
-            <h6>Rules</h6>
+            <h3>Rules</h3>
             <ul>
                 <li>Structure is defined by indentation.</li>
                 <li>Spaces must be used for indentation; tabs are not allowed.</li>
@@ -70,7 +70,7 @@ const yaml = () => {
                 <li>Consistent indentation is required throughout the document.</li>
             </ul>
 
-            <h6>Validation</h6>
+            <h3>Validation</h3>
             <ul>
                 <li>Indentation must be correct and consistent.</li>
                 <li>Tabs must not be used.</li>
@@ -84,7 +84,7 @@ const yaml = () => {
 const csv = () => {
     return (
         <div className="card-body">
-            <h5 className="card-title">CSV</h5>
+            <h2 className="card-title">CSV</h2>
 
             <p className="card-text">
                 CSV (Comma-Separated Values) is a lightweight tabular data format used for
@@ -92,7 +92,7 @@ const csv = () => {
                 between systems, spreadsheets, and databases.
             </p>
 
-            <h6>Rules</h6>
+            <h3>Rules</h3>
             <ul>
                 <li>Each line represents a single row of data.</li>
                 <li>Fields are separated by commas (,).</li>
@@ -103,7 +103,7 @@ const csv = () => {
                 <li>No strict indentation rules apply, but formatting must remain consistent.</li>
             </ul>
 
-            <h6>Validation</h6>
+            <h3>Validation</h3>
             <ul>
                 <li>All rows must have equal column count.</li>
                 <li>CSV must not contain malformed or unescaped quotes.</li>
