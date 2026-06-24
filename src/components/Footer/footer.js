@@ -79,19 +79,19 @@ const Footer = () => {
                         <div className="col mb-3 align-items-end text-end">
                             <ul className="nav flex-column ">
                                 <li className="nav-item mb-2">
-                                    <Link to="/csv/json" className="nav-link p-0 text-body-secondary">CSV to JSON</Link>
+                                    <Link to="/csv/json" className="nav-link p-0 text-body-secondary">Csv to Json</Link>
                                 </li>
                                 <li className="nav-item mb-2">
-                                    <Link to="/csv/xml" className="nav-link p-0 text-body-secondary">CSV to XML</Link>
+                                    <Link to="/csv/xml" className="nav-link p-0 text-body-secondary">Csv to Xml</Link>
                                 </li>
                                 <li className="nav-item mb-2">
-                                    <Link to="/csv/yaml" className="nav-link p-0 text-body-secondary">CSV to Yaml</Link>
+                                    <Link to="/csv/yaml" className="nav-link p-0 text-body-secondary">Csv to Yaml</Link>
                                 </li>
                                 <li className="nav-item mb-2">
-                                    <Link to="/csv/toml" className="nav-link p-0 text-body-secondary">CSV to Toml</Link>
+                                    <Link to="/csv/toml" className="nav-link p-0 text-body-secondary">Csv to Toml</Link>
                                 </li>
                                 <li className="nav-item mb-2">
-                                    <Link to="/csv" className="nav-link p-0 text-body-secondary">CSV Format</Link>
+                                    <Link to="/csv" className="nav-link p-0 text-body-secondary">Csv Format</Link>
                                 </li>
                             </ul>
                         </div>
