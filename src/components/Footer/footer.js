@@ -88,6 +88,9 @@ const Footer = () => {
                                     <Link to="/csv/yaml" className="nav-link p-0 text-body-secondary">CSV to Yaml</Link>
                                 </li>
                                 <li className="nav-item mb-2">
+                                    <Link to="/csv/toml" className="nav-link p-0 text-body-secondary">CSV to Toml</Link>
+                                </li>
+                                <li className="nav-item mb-2">
                                     <Link to="/csv" className="nav-link p-0 text-body-secondary">CSV Format</Link>
                                 </li>
                             </ul>
