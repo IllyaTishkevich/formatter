@@ -1,6 +1,9 @@
 import { XMLParser, XMLBuilder } from 'fast-xml-parser'
 import yaml from 'js-yaml'
-import { minifyCSV } from "../utils/csv";
+import {flatten, minifyCSV, unflatten} from "../utils/csv";
+import {minifyToml, parseToml, toToml} from "../utils/toml";
+import Papa from "papaparse";
+
 
 const xmlParser = new XMLParser()
 
@@ -8,7 +11,7 @@ const compactXmlBuilder = new XMLBuilder({
     format: false,
 })
 
-export function minifyByFormat(inputFormat,outputFormat, text) {
+export function minifyByFormat(inputFormat, outputFormat, text) {
     let result = '';
     switch (inputFormat) {
         case 'json': {
@@ -27,9 +30,21 @@ export function minifyByFormat(inputFormat,outputFormat, text) {
         }
 
         case 'csv': {
-            result =  text
+            const flat = Papa.parse(minifyCSV(text), {
+                header: true,
+                skipEmptyLines: true
+            }).data;
+
+            result = flat.map(unflatten).shift();
             break;
         }
+
+        case 'toml':
+            result = parseToml(text);
+            break;
+
+        default:
+            throw new Error('Unsupported input format');
     }
 
 
@@ -50,7 +65,18 @@ export function minifyByFormat(inputFormat,outputFormat, text) {
         }
 
         case 'csv': {
-            return minifyCSV(result);
+            const flat = flatten(result);
+            result = Papa.unparse([flat]);
+
+            return minifyCSV(result)
         }
+
+        case 'toml':
+            const toml = toToml(result)
+
+            return minifyToml(toml)
+
+        default:
+            throw new Error('Unsupported output format')
     }
 }

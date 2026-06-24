@@ -1,7 +1,8 @@
 import { XMLBuilder, XMLParser } from 'fast-xml-parser'
-import { parseYaml, toYaml } from './yaml'
-import { addXmlDeclaration } from '../utils/xml';
-import { minifyCSV } from "../utils/csv";
+import { parseYaml, toYaml } from '../utils/yaml'
+import { beautifyToml, parseToml, toToml } from "../utils/toml";
+import {flatten, minifyCSV, unflatten} from "../utils/csv";
+import Papa from "papaparse";
 
 const parser = new XMLParser(
     {
@@ -42,7 +43,16 @@ export function formatter(input, format) {
             break
 
         case 'csv':
-            data = minifyCSV(input);
+            const flat = Papa.parse(minifyCSV(input), {
+                header: true,
+                skipEmptyLines: true
+            }).data;
+
+            data = flat.map(unflatten).shift();
+            break
+
+        case 'toml':
+            data = parseToml(input);
             break
 
         default:
@@ -62,7 +72,15 @@ export function formatter(input, format) {
             return res.data
 
         case 'csv':
+            const flat = flatten(data);
+            data = Papa.unparse([flat]);
+
             return minifyCSV(data)
+
+        case 'toml':
+            const toml = toToml(data)
+
+            return beautifyToml(toml)
 
         default:
             throw new Error('Unsupported output format')
