@@ -1,7 +1,8 @@
 import { XMLParser, XMLBuilder } from 'fast-xml-parser'
 import yaml from 'js-yaml'
-import {flatten, minifyCSV, unflatten} from "../utils/csv";
-import {minifyToml, parseToml, toToml} from "../utils/toml";
+import { flatten, minifyCSV, unflatten } from "../utils/csv";
+import { minifyToml, parseToml, toToml } from "../utils/toml";
+import { parseTsv, toTsv, minifyTsv } from "../utils/tsv";
 import Papa from "papaparse";
 
 
@@ -43,6 +44,10 @@ export function minifyByFormat(inputFormat, outputFormat, text) {
             result = parseToml(text);
             break;
 
+        case 'tsv':
+            result = parseTsv(text);
+            break;
+
         default:
             throw new Error('Unsupported input format');
     }
@@ -75,6 +80,11 @@ export function minifyByFormat(inputFormat, outputFormat, text) {
             const toml = toToml(result)
 
             return minifyToml(toml)
+
+        case 'tsv':
+            const tsv = toTsv(result)
+
+            return minifyTsv(tsv)
 
         default:
             throw new Error('Unsupported output format')

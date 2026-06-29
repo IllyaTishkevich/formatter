@@ -3,6 +3,7 @@ import { parseYaml, toYaml } from '../utils/yaml'
 import { parseToml, toToml } from "../utils/toml";
 import Papa from 'papaparse'
 import { flatten, unflatten, minifyCSV } from "../utils/csv";
+import { parseTsv, toTsv } from "../utils/tsv";
 
 const parser = new XMLParser(
     {
@@ -55,6 +56,11 @@ export function convert(input, from, to) {
         case 'toml':
             data = parseToml(input);
             break;
+
+        case 'tsv':
+            data = parseTsv(input);
+            break;
+
         default:
             throw new Error('Unsupported input format')
     }
@@ -79,6 +85,10 @@ export function convert(input, from, to) {
 
         case 'toml':
             return toToml(data);
+
+        case 'tsv':
+            const flatObj = flatten(data);
+            return toTsv(flatObj);
 
 
         default:

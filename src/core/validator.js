@@ -2,6 +2,7 @@ import { XMLParser } from 'fast-xml-parser'
 import { parseYaml } from '../utils/yaml'
 import { validateToml } from "../utils/toml";
 import { validateCsv } from "../utils/csv";
+import { validateTsv } from "../utils/tsv";
 
 const xmlParser = new XMLParser()
 
@@ -26,6 +27,9 @@ export function validateByFormat(format, input) {
 
             case 'toml':
                 return validateToml(input)
+
+            case 'tsv':
+                return validateTsv(input)
 
             default:
                 return { ok: false, error: 'Unknown format' }
