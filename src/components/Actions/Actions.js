@@ -159,7 +159,7 @@ const useActions = () => {
 }
 
 const ActionButton = ({label, handler}) => {
-    return <button title={label} className='btn btn-secondary btn-sm w-100' onClick={handler}>
+    return <button title={label} className='btn btn-outline-secondary btn-sm w-100' onClick={handler}>
         {label}
     </button>
 }
