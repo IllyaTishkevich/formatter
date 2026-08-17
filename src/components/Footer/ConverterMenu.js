@@ -6,12 +6,12 @@ const ConverterMenu = () => {
     const block = SUPPORTED.map((inputFormat) => <List inputFormat={inputFormat} />)
 
     return <>
-        <div className="col mb-12 align-items-end text-end">
-            <h6>Conversion pages:</h6>
-        </div>
-        <div className='row row-cols-1 row-cols-sm-2 row-cols-md-6'>
-            {block}
-        </div>
+            <div className="col mb-12 align-items-end text-end">
+                <h6>Conversion pages:</h6>
+            </div>
+            <div className='row row-cols-1 row-cols-sm-2 row-cols-md-6'>
+                {block}
+            </div>
         </>
 }
 
