@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ConverterPage from './pages/ConverterPage'
 import FormatterPage from "./pages/FormatterPage"
 import PrivacyPolicy from './pages/PrivacyPolicy'
+import Sitemap from "./pages/Sitemap";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
                   <Route path="/policy" element={<PrivacyPolicy />} />
                   <Route path="/:input/:output" element={<ConverterPage />} />
                   <Route path="/:input" element={<FormatterPage />} />
+                  <Route path="/sitemap" element={<Sitemap />} />
                   <Route path="/" element={<FormatterPage />} />
               </Routes>
               <Footer />
