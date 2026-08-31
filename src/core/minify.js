@@ -3,6 +3,7 @@ import yaml from 'js-yaml'
 import { flatten, minifyCSV, unflatten } from "../utils/csv";
 import { minifyToml, parseToml, toToml } from "../utils/toml";
 import { parseTsv, toTsv, minifyTsv } from "../utils/tsv";
+import { minifyIni, parseIni, toIni } from "../utils/ini";
 import Papa from "papaparse";
 
 
@@ -48,6 +49,10 @@ export function minifyByFormat(inputFormat, outputFormat, text) {
             result = parseTsv(text);
             break;
 
+        case 'ini':
+            result = parseIni(text);
+            break;
+
         default:
             throw new Error('Unsupported input format');
     }
@@ -85,6 +90,11 @@ export function minifyByFormat(inputFormat, outputFormat, text) {
             const tsv = toTsv(result)
 
             return minifyTsv(tsv)
+
+        case 'ini':
+            const ini = toIni(result)
+
+            return minifyIni(ini)
 
         default:
             throw new Error('Unsupported output format')

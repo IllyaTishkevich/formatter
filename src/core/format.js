@@ -2,7 +2,8 @@ import { XMLBuilder, XMLParser } from 'fast-xml-parser'
 import { parseYaml, toYaml } from '../utils/yaml'
 import { beautifyToml, parseToml, toToml } from "../utils/toml";
 import { parseTsv, toTsv, beautifyTsv } from "../utils/tsv";
-import {flatten, minifyCSV, unflatten} from "../utils/csv";
+import { flatten, minifyCSV, unflatten } from "../utils/csv";
+import { parseIni, toIni, beautifyIni } from "../utils/ini";
 import Papa from "papaparse";
 
 const parser = new XMLParser(
@@ -60,6 +61,10 @@ export function formatter(input, format) {
             data = parseTsv(input);
             break
 
+        case 'ini':
+            data = parseIni(input);
+            break
+
         default:
             throw new Error('Unsupported input format')
     }
@@ -91,6 +96,11 @@ export function formatter(input, format) {
             const tsv = toTsv(data)
 
             return beautifyTsv(tsv)
+
+        case 'ini':
+            const ini = toIni(data)
+
+            return beautifyIni(ini)
 
         default:
             throw new Error('Unsupported output format')

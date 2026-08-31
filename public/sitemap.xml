@@ -32,6 +32,10 @@
     </url>
 
     <url>
+        <loc>https://validformat.online/json/ini</loc>
+    </url>
+
+    <url>
         <loc>https://validformat.online/xml</loc>
     </url>
 
@@ -53,6 +57,10 @@
 
     <url>
         <loc>https://validformat.online/xml/tsv</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/xml/ini</loc>
     </url>
 
     <url>
@@ -80,6 +88,10 @@
     </url>
 
     <url>
+        <loc>https://validformat.online/yaml/ini</loc>
+    </url>
+
+    <url>
         <loc>https://validformat.online/csv</loc>
     </url>
 
@@ -101,6 +113,10 @@
 
     <url>
         <loc>https://validformat.online/csv/tsv</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/csv/ini</loc>
     </url>
 
     <url>
@@ -128,6 +144,10 @@
     </url>
 
     <url>
+        <loc>https://validformat.online/toml/ini</loc>
+    </url>
+
+    <url>
         <loc>https://validformat.online/tsv</loc>
     </url>
 
@@ -149,6 +169,38 @@
 
     <url>
         <loc>https://validformat.online/tsv/toml</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/tsv/ini</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/ini</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/ini/json</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/ini/xml</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/ini/yaml</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/ini/csv</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/ini/toml</loc>
+    </url>
+
+    <url>
+        <loc>https://validformat.online/ini/tsv</loc>
     </url>
 
     <url>

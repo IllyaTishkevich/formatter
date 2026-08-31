@@ -4,6 +4,7 @@ import { parseToml, toToml } from "../utils/toml";
 import Papa from 'papaparse'
 import { flatten, unflatten, minifyCSV } from "../utils/csv";
 import { parseTsv, toTsv } from "../utils/tsv";
+import { parseIni, toIni } from "../utils/ini";
 
 const parser = new XMLParser(
     {
@@ -61,6 +62,10 @@ export function convert(input, from, to) {
             data = parseTsv(input);
             break;
 
+        case 'ini':
+            data = parseIni(input);
+            break;
+
         default:
             throw new Error('Unsupported input format')
     }
@@ -90,6 +95,8 @@ export function convert(input, from, to) {
             const flatObj = flatten(data);
             return toTsv(flatObj);
 
+        case 'ini':
+            return toIni(data);
 
         default:
             throw new Error('Unsupported output format')

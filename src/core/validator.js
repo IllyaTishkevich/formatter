@@ -3,6 +3,7 @@ import { parseYaml } from '../utils/yaml'
 import { validateToml } from "../utils/toml";
 import { validateCsv } from "../utils/csv";
 import { validateTsv } from "../utils/tsv";
+import { validateIni } from "../utils/ini";
 
 const xmlParser = new XMLParser()
 
@@ -30,6 +31,9 @@ export function validateByFormat(format, input) {
 
             case 'tsv':
                 return validateTsv(input)
+
+            case 'ini':
+                return validateIni(input)
 
             default:
                 return { ok: false, error: 'Unknown format' }
