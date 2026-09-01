@@ -10,6 +10,7 @@ import ConverterPage from './pages/ConverterPage'
 import FormatterPage from "./pages/FormatterPage"
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Sitemap from "./pages/Sitemap";
+import Include from "./pages/Include";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
                   <Route path="/:input/:output" element={<ConverterPage />} />
                   <Route path="/:input" element={<FormatterPage />} />
                   <Route path="/sitemap" element={<Sitemap />} />
+                  <Route path="/include" element={<Include />} />
                   <Route path="/" element={<FormatterPage />} />
               </Routes>
               <Footer />
