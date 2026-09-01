@@ -5,6 +5,7 @@ import { parseTsv, toTsv, beautifyTsv } from "../utils/tsv";
 import { flatten, minifyCSV, unflatten } from "../utils/csv";
 import { parseIni, toIni, beautifyIni } from "../utils/ini";
 import { parseProperties, toProperties, beautifyProperties } from "../utils/properties";
+import { parseHcl, toHcl } from "../utils/hcl";
 import Papa from "papaparse";
 
 const parser = new XMLParser(
@@ -69,6 +70,10 @@ export function formatter(input, format) {
             data = parseProperties(input);
             break
 
+        case 'hcl':
+            data = parseHcl(input);
+            break
+
         default:
             throw new Error('Unsupported input format')
     }
@@ -105,6 +110,9 @@ export function formatter(input, format) {
         case 'properties':
             const properties = toProperties(data)
             return beautifyProperties(properties)
+
+        case 'hcl':
+            return toHcl(data)
 
         default:
             throw new Error('Unsupported output format')

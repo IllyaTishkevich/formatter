@@ -5,6 +5,7 @@ import { validateCsv } from "../utils/csv";
 import { validateTsv } from "../utils/tsv";
 import { validateIni } from "../utils/ini";
 import { validateProperties } from "../utils/properties";
+import { validateHcl } from "../utils/hcl";
 
 const xmlParser = new XMLParser()
 
@@ -38,6 +39,9 @@ export function validateByFormat(format, input) {
 
             case 'properties':
                 return validateProperties(input)
+
+            case 'hcl':
+                return validateHcl(input)
 
             default:
                 return { ok: false, error: 'Unknown format' }

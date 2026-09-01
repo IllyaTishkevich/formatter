@@ -6,6 +6,7 @@ import { flatten, unflatten, minifyCSV } from "../utils/csv";
 import { parseTsv, toTsv } from "../utils/tsv";
 import { parseIni, toIni } from "../utils/ini";
 import { parseProperties, toProperties } from "../utils/properties";
+import { parseHcl, toHcl } from "../utils/hcl";
 
 const parser = new XMLParser(
     {
@@ -71,6 +72,10 @@ export function convert(input, from, to) {
             data = parseProperties(input);
             break;
 
+        case 'hcl':
+            data = parseHcl(input);
+            break;
+
         default:
             throw new Error('Unsupported input format')
     }
@@ -105,6 +110,9 @@ export function convert(input, from, to) {
 
         case 'properties':
             return toProperties(data);
+
+        case 'hcl':
+            return toHcl(data);
 
         default:
             throw new Error('Unsupported output format')

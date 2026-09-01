@@ -7,6 +7,7 @@ const SUPPORTED = [
     'tsv',
     'ini',
     'properties',
+    'hcl'
 ];
 
 export default SUPPORTED;

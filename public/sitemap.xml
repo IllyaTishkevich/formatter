@@ -1,208 +1,251 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<urlset
-        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://validformat.online/</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/json</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/json/xml</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/json/yaml</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/json/csv</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/json/toml</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/json/tsv</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/json/ini</loc>
     </url>
-
     <url>
-        <loc>https://validformat.online/xml</loc>
+        <loc>https://validformat.online/json/properties</loc>
     </url>
-
+    <url>
+        <loc>https://validformat.online/json/hcl</loc>
+    </url>
     <url>
         <loc>https://validformat.online/xml/json</loc>
     </url>
-
+    <url>
+        <loc>https://validformat.online/xml</loc>
+    </url>
     <url>
         <loc>https://validformat.online/xml/yaml</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/xml/csv</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/xml/toml</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/xml/tsv</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/xml/ini</loc>
     </url>
-
     <url>
-        <loc>https://validformat.online/yaml</loc>
+        <loc>https://validformat.online/xml/properties</loc>
     </url>
-
+    <url>
+        <loc>https://validformat.online/xml/hcl</loc>
+    </url>
     <url>
         <loc>https://validformat.online/yaml/json</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/yaml/xml</loc>
     </url>
-
+    <url>
+        <loc>https://validformat.online/yaml</loc>
+    </url>
     <url>
         <loc>https://validformat.online/yaml/csv</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/yaml/toml</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/yaml/tsv</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/yaml/ini</loc>
     </url>
-
     <url>
-        <loc>https://validformat.online/csv</loc>
+        <loc>https://validformat.online/yaml/properties</loc>
     </url>
-
+    <url>
+        <loc>https://validformat.online/yaml/hcl</loc>
+    </url>
     <url>
         <loc>https://validformat.online/csv/json</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/csv/xml</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/csv/yaml</loc>
     </url>
-
+    <url>
+        <loc>https://validformat.online/csv</loc>
+    </url>
     <url>
         <loc>https://validformat.online/csv/toml</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/csv/tsv</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/csv/ini</loc>
     </url>
-
     <url>
-        <loc>https://validformat.online/toml</loc>
+        <loc>https://validformat.online/csv/properties</loc>
     </url>
-
+    <url>
+        <loc>https://validformat.online/csv/hcl</loc>
+    </url>
     <url>
         <loc>https://validformat.online/toml/json</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/toml/xml</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/toml/yaml</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/toml/csv</loc>
     </url>
-
+    <url>
+        <loc>https://validformat.online/toml</loc>
+    </url>
     <url>
         <loc>https://validformat.online/toml/tsv</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/toml/ini</loc>
     </url>
-
     <url>
-        <loc>https://validformat.online/tsv</loc>
+        <loc>https://validformat.online/toml/properties</loc>
     </url>
-
+    <url>
+        <loc>https://validformat.online/toml/hcl</loc>
+    </url>
     <url>
         <loc>https://validformat.online/tsv/json</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/tsv/xml</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/tsv/yaml</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/tsv/csv</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/tsv/toml</loc>
     </url>
-
+    <url>
+        <loc>https://validformat.online/tsv</loc>
+    </url>
     <url>
         <loc>https://validformat.online/tsv/ini</loc>
     </url>
-
     <url>
-        <loc>https://validformat.online/ini</loc>
+        <loc>https://validformat.online/tsv/properties</loc>
     </url>
-
+    <url>
+        <loc>https://validformat.online/tsv/hcl</loc>
+    </url>
     <url>
         <loc>https://validformat.online/ini/json</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/ini/xml</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/ini/yaml</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/ini/csv</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/ini/toml</loc>
     </url>
-
     <url>
         <loc>https://validformat.online/ini/tsv</loc>
     </url>
-
+    <url>
+        <loc>https://validformat.online/ini</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/ini/properties</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/ini/hcl</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/properties/json</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/properties/xml</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/properties/yaml</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/properties/csv</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/properties/toml</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/properties/tsv</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/properties/ini</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/properties</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/properties/hcl</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/hcl/json</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/hcl/xml</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/hcl/yaml</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/hcl/csv</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/hcl/toml</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/hcl/tsv</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/hcl/ini</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/hcl/properties</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/hcl</loc>
+    </url>
     <url>
         <loc>https://validformat.online/policy</loc>
     </url>

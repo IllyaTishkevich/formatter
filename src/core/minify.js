@@ -5,6 +5,7 @@ import { minifyToml, parseToml, toToml } from "../utils/toml";
 import { parseTsv, toTsv, minifyTsv } from "../utils/tsv";
 import { minifyIni, parseIni, toIni } from "../utils/ini";
 import { minifyProperties, parseProperties, toProperties } from "../utils/properties";
+import { minifyHcl, parseHcl, toHcl } from "../utils/hcl";
 import Papa from "papaparse";
 
 
@@ -54,6 +55,10 @@ export function minifyByFormat(inputFormat, outputFormat, text) {
             result = parseProperties(text);
             break;
 
+        case 'hcl':
+            result = parseHcl(text);
+            break;
+
         default:
             throw new Error('Unsupported input format');
     }
@@ -93,6 +98,10 @@ export function minifyByFormat(inputFormat, outputFormat, text) {
         case 'properties':
             const properties = toProperties(result)
             return minifyProperties(properties)
+
+        case 'hcl':
+            const hcl = toHcl(result)
+            return minifyHcl(hcl)
 
         default:
             throw new Error('Unsupported output format')
