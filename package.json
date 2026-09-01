@@ -33,7 +33,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:purge": "purgecss --config ./purgecss.config.js",
-    "build:production": "npm run build && npm run build:purge"
+    "build:production": "yarn build && yarn build:purge"
   },
   "reactSnap": {
     "inlineCss": false,
