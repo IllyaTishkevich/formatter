@@ -4,6 +4,7 @@ import { flatten, minifyCSV, unflatten } from "../utils/csv";
 import { minifyToml, parseToml, toToml } from "../utils/toml";
 import { parseTsv, toTsv, minifyTsv } from "../utils/tsv";
 import { minifyIni, parseIni, toIni } from "../utils/ini";
+import { minifyProperties, parseProperties, toProperties } from "../utils/properties";
 import Papa from "papaparse";
 
 
@@ -16,22 +17,19 @@ const compactXmlBuilder = new XMLBuilder({
 export function minifyByFormat(inputFormat, outputFormat, text) {
     let result = '';
     switch (inputFormat) {
-        case 'json': {
+        case 'json':
             result = JSON.parse(text);
             break;
-        }
 
-        case 'xml': {
+        case 'xml':
             result = xmlParser.parse(text)
             break;
-        }
 
-        case 'yaml': {
+        case 'yaml':
             result = yaml.load(text);
             break;
-        }
 
-        case 'csv': {
+        case 'csv':
             const flat = Papa.parse(minifyCSV(text), {
                 header: true,
                 skipEmptyLines: true
@@ -39,7 +37,6 @@ export function minifyByFormat(inputFormat, outputFormat, text) {
 
             result = flat.map(unflatten).shift();
             break;
-        }
 
         case 'toml':
             result = parseToml(text);
@@ -53,48 +50,49 @@ export function minifyByFormat(inputFormat, outputFormat, text) {
             result = parseIni(text);
             break;
 
+        case 'properties':
+            result = parseProperties(text);
+            break;
+
         default:
             throw new Error('Unsupported input format');
     }
 
 
     switch (outputFormat) {
-        case 'json': {
+        case 'json':
             return JSON.stringify(result)
-        }
 
-        case 'xml': {
+        case 'xml':
             return compactXmlBuilder.build(result)
-        }
 
-        case 'yaml': {
+        case 'yaml':
             return yaml.dump(result, {
                 flowLevel: 0,
                 lineWidth: -1,
             });
-        }
 
-        case 'csv': {
+        case 'csv':
             const flat = flatten(result);
             result = Papa.unparse([flat]);
-
             return minifyCSV(result)
-        }
 
         case 'toml':
             const toml = toToml(result)
-
             return minifyToml(toml)
 
-        case 'tsv':
+        case 'tsv': {
             const tsv = toTsv(result)
-
             return minifyTsv(tsv)
+        }
 
         case 'ini':
             const ini = toIni(result)
-
             return minifyIni(ini)
+
+        case 'properties':
+            const properties = toProperties(result)
+            return minifyProperties(properties)
 
         default:
             throw new Error('Unsupported output format')

@@ -5,6 +5,7 @@ import Papa from 'papaparse'
 import { flatten, unflatten, minifyCSV } from "../utils/csv";
 import { parseTsv, toTsv } from "../utils/tsv";
 import { parseIni, toIni } from "../utils/ini";
+import { parseProperties, toProperties } from "../utils/properties";
 
 const parser = new XMLParser(
     {
@@ -66,6 +67,10 @@ export function convert(input, from, to) {
             data = parseIni(input);
             break;
 
+        case 'properties':
+            data = parseProperties(input);
+            break;
+
         default:
             throw new Error('Unsupported input format')
     }
@@ -97,6 +102,9 @@ export function convert(input, from, to) {
 
         case 'ini':
             return toIni(data);
+
+        case 'properties':
+            return toProperties(data);
 
         default:
             throw new Error('Unsupported output format')
