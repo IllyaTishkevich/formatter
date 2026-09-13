@@ -7,6 +7,8 @@ import { minifyIni, parseIni, toIni } from "../utils/ini";
 import { minifyProperties, parseProperties, toProperties } from "../utils/properties";
 import { minifyHcl, parseHcl, toHcl } from "../utils/hcl";
 import { minifyNdjson, parseNdjson, toNdjson } from "../utils/ndjson";
+import { minifyEnv, parseEnv, toEnv } from "../utils/env";
+import { minifyQueryString, parseQueryString, toQueryString } from "../utils/querystring";
 import Papa from "papaparse";
 
 
@@ -64,6 +66,14 @@ export function minifyByFormat(inputFormat, outputFormat, text) {
             result = parseNdjson(text);
             break;
 
+        case 'env':
+            result = parseEnv(text);
+            break;
+
+        case 'querystring':
+            result = parseQueryString(text);
+            break;
+
         default:
             throw new Error('Unsupported input format');
     }
@@ -111,6 +121,14 @@ export function minifyByFormat(inputFormat, outputFormat, text) {
         case 'ndjson':
             const ndjson = toNdjson(result)
             return minifyNdjson(ndjson)
+
+        case 'env':
+            const env = toEnv(result)
+            return minifyEnv(env)
+
+        case 'querystring':
+            const querystring = toQueryString(result)
+            return minifyQueryString(querystring)
 
         default:
             throw new Error('Unsupported output format')

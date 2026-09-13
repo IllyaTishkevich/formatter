@@ -34,6 +34,12 @@
         <loc>https://validformat.online/json/ndjson</loc>
     </url>
     <url>
+        <loc>https://validformat.online/json/env</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/json/querystring</loc>
+    </url>
+    <url>
         <loc>https://validformat.online/xml/json</loc>
     </url>
     <url>
@@ -62,6 +68,12 @@
     </url>
     <url>
         <loc>https://validformat.online/xml/ndjson</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/xml/env</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/xml/querystring</loc>
     </url>
     <url>
         <loc>https://validformat.online/yaml/json</loc>
@@ -94,6 +106,12 @@
         <loc>https://validformat.online/yaml/ndjson</loc>
     </url>
     <url>
+        <loc>https://validformat.online/yaml/env</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/yaml/querystring</loc>
+    </url>
+    <url>
         <loc>https://validformat.online/csv/json</loc>
     </url>
     <url>
@@ -122,6 +140,12 @@
     </url>
     <url>
         <loc>https://validformat.online/csv/ndjson</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/csv/env</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/csv/querystring</loc>
     </url>
     <url>
         <loc>https://validformat.online/toml/json</loc>
@@ -154,6 +178,12 @@
         <loc>https://validformat.online/toml/ndjson</loc>
     </url>
     <url>
+        <loc>https://validformat.online/toml/env</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/toml/querystring</loc>
+    </url>
+    <url>
         <loc>https://validformat.online/tsv/json</loc>
     </url>
     <url>
@@ -182,6 +212,12 @@
     </url>
     <url>
         <loc>https://validformat.online/tsv/ndjson</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/tsv/env</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/tsv/querystring</loc>
     </url>
     <url>
         <loc>https://validformat.online/ini/json</loc>
@@ -214,6 +250,12 @@
         <loc>https://validformat.online/ini/ndjson</loc>
     </url>
     <url>
+        <loc>https://validformat.online/ini/env</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/ini/querystring</loc>
+    </url>
+    <url>
         <loc>https://validformat.online/properties/json</loc>
     </url>
     <url>
@@ -242,6 +284,12 @@
     </url>
     <url>
         <loc>https://validformat.online/properties/ndjson</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/properties/env</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/properties/querystring</loc>
     </url>
     <url>
         <loc>https://validformat.online/hcl/json</loc>
@@ -274,6 +322,12 @@
         <loc>https://validformat.online/hcl/ndjson</loc>
     </url>
     <url>
+        <loc>https://validformat.online/hcl/env</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/hcl/querystring</loc>
+    </url>
+    <url>
         <loc>https://validformat.online/ndjson/json</loc>
     </url>
     <url>
@@ -302,6 +356,84 @@
     </url>
     <url>
         <loc>https://validformat.online/ndjson</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/ndjson/env</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/ndjson/querystring</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/env/json</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/env/xml</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/env/yaml</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/env/csv</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/env/toml</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/env/tsv</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/env/ini</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/env/properties</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/env/hcl</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/env/ndjson</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/env</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/env/querystring</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/querystring/json</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/querystring/xml</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/querystring/yaml</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/querystring/csv</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/querystring/toml</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/querystring/tsv</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/querystring/ini</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/querystring/properties</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/querystring/hcl</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/querystring/ndjson</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/querystring/env</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/querystring</loc>
     </url>
     <url>
         <loc>https://validformat.online/policy</loc>

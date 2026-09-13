@@ -8,6 +8,8 @@ import { parseIni, toIni } from "../utils/ini";
 import { parseProperties, toProperties } from "../utils/properties";
 import { parseHcl, toHcl } from "../utils/hcl";
 import { parseNdjson, toNdjson } from "../utils/ndjson";
+import { parseEnv, toEnv } from "../utils/env";
+import { parseQueryString, toQueryString } from "../utils/querystring";
 
 const parser = new XMLParser(
     {
@@ -81,6 +83,14 @@ export function convert(input, from, to) {
             data = parseNdjson(input);
             break;
 
+        case 'env':
+            data = parseEnv(input);
+            break;
+
+        case 'querystring':
+            data = parseQueryString(input);
+            break;
+
         default:
             throw new Error('Unsupported input format')
     }
@@ -121,6 +131,12 @@ export function convert(input, from, to) {
 
         case 'ndjson':
             return toNdjson(data);
+
+        case 'env':
+            return toEnv(data);
+
+        case 'querystring':
+            return toQueryString(data);
 
         default:
             throw new Error('Unsupported output format')

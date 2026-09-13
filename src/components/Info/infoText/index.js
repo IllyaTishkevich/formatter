@@ -8,6 +8,8 @@ import Ini from "./Ini";
 import Properties from "./Properties";
 import Hcl from "./Hcl";
 import Ndjson from "./Ndjson";
+import Env from "./Env";
+import QueryString from "./QueryString";
 
 export default {
     json: Json,
@@ -19,5 +21,7 @@ export default {
     ini: Ini,
     properties: Properties,
     hcl: Hcl,
-    ndjson: Ndjson
+    ndjson: Ndjson,
+    env: Env,
+    querystring: QueryString
 };

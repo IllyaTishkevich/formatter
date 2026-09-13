@@ -8,7 +8,9 @@ const SUPPORTED = [
     'ini',
     'properties',
     'hcl',
-    'ndjson'
+    'ndjson',
+    'env',
+    'querystring'
 ];
 
 export default SUPPORTED;
