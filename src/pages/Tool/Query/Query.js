@@ -21,6 +21,14 @@ import {
 
 const METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'];
 
+// production build (.env.production) points this at the api.validformat.online
+// subdomain; local dev leaves it unset, so the base is '' and the endpoint
+// below stays a relative path that CRA's "proxy" field (package.json) forwards
+// to the local Symfony backend - either way, the backend's own CORS headers
+// make cross-origin calls fine too
+const API_BASE_URL = (process.env.REACT_APP_API_URL || '').replace(/\/+$/, '');
+const PROXY_ENDPOINT = `${API_BASE_URL}/api/request`;
+
 const DEFAULT_HEADERS = `{
   "Content-Type": "application/json"
 }`;
@@ -177,42 +185,41 @@ const Query = () => {
             return next;
         });
 
+        let outgoingBody;
+
+        if (!bodyDisabled) {
+            if (bodyType === 'form') {
+                outgoingBody = queryFromRows(formRows);
+            } else if (bodyType !== 'none' && body.trim()) {
+                outgoingBody = body;
+            }
+        }
+
         setLoading(true);
         setResponse(null);
         setResponseTab('body');
 
-        const start = performance.now();
-
         try {
-            const options = { method, headers: finalHeaders };
+            // sent through our own backend proxy (formatter-backend, /api/request) so the
+            // browser never has to satisfy the target server's CORS policy
+            const proxyRes = await fetch(PROXY_ENDPOINT, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ method, url, headers: finalHeaders, body: outgoingBody })
+            });
 
-            if (!bodyDisabled) {
-                if (bodyType === 'form') {
-                    options.body = queryFromRows(formRows);
-                } else if (bodyType !== 'none' && body.trim()) {
-                    options.body = body;
-                }
+            const data = await proxyRes.json();
+
+            if (!proxyRes.ok) {
+                // the proxy itself rejected the request (bad URL, blocked address, too large, ...)
+                addErrorMessage(data.error || 'Request failed');
+                return;
             }
 
-            const res = await fetch(url, options);
-            const text = await res.text();
-
-            const responseHeaders = {};
-            res.headers.forEach((value, key) => {
-                responseHeaders[key] = value;
-            });
-
-            setResponse({
-                ok: res.ok,
-                status: res.status,
-                statusText: res.statusText,
-                headers: responseHeaders,
-                body: text,
-                time: Math.round(performance.now() - start)
-            });
+            setResponse(data);
 
             // send the response body to the converter's input, so it's ready to convert
-            const formattedBody = formatResponseBody(text, getResponseLanguage(responseHeaders['content-type']));
+            const formattedBody = formatResponseBody(data.body, getResponseLanguage(data.headers['content-type']));
             dispatch(setInput(formattedBody));
 
             try {
