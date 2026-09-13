@@ -10,6 +10,7 @@ import Hcl from "./Hcl";
 import Ndjson from "./Ndjson";
 import Env from "./Env";
 import QueryString from "./QueryString";
+import ToolQuery from "./ToolQuery";
 
 const infoText = {
     json: Json,
@@ -23,7 +24,8 @@ const infoText = {
     hcl: Hcl,
     ndjson: Ndjson,
     env: Env,
-    querystring: QueryString
+    querystring: QueryString,
+    'tool-query': ToolQuery
 };
 
 export default infoText;

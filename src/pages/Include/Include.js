@@ -13,6 +13,7 @@ const Include = () => {
     })
 
     include.push('/policy');
+    include.push('/tool/query');
     const json =  JSON.stringify({ include: include }, null, 2);
 
     return <div>

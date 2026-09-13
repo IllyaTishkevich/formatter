@@ -187,7 +187,8 @@
       "/querystring/ndjson",
       "/querystring/env",
       "/querystring",
-      "/policy"
+      "/policy",
+      "/tool/query"
     ]
   },
   "eslintConfig": {

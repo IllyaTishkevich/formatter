@@ -1,7 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+const INPUT_STORAGE_KEY = 'converter-input';
+
+const readStoredInput = () => {
+    try {
+        return localStorage.getItem(INPUT_STORAGE_KEY) || '';
+    } catch (e) {
+        return '';
+    }
+}
+
 const initialState = {
-    input: '',
+    input: readStoredInput(),
     output: '',
     errors: [],
     format: 'json',
@@ -53,5 +63,7 @@ export const {
     removeFirstError
 } =
     converterSlice.actions
+
+export { INPUT_STORAGE_KEY }
 
 export default converterSlice.reducer

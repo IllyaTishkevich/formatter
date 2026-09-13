@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import ConverterMenu from "./ConverterMenu";
+import ToolsMenu from "./ToolsMenu";
 
 
 const Footer = () => {
@@ -10,14 +11,10 @@ const Footer = () => {
                 <div className="col-10 p3">
                     <ConverterMenu/>
                 </div>
+            </div>
+            <div className="row">
                 <div className="col-2 p3">
-                    {/*<div className="col mb-3 align-items-center">*/}
-                    {/*    <a href="/"*/}
-                    {/*       className="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none"*/}
-                    {/*       aria-label="Bootstrap">*/}
-                    {/*        <Logo height='64' img='icon'/>*/}
-                    {/*    </a>*/}
-                    {/*</div>*/}
+                    <ToolsMenu/>
                 </div>
             </div>
         </div>

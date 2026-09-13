@@ -23,6 +23,9 @@ const Sitemap = () => {
     sitemap += `
     <url>
         <loc>https://validformat.online/policy</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/tool/query</loc>
     </url>`;
 
     sitemap += '\n' +
