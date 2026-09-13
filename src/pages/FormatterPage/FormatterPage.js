@@ -20,6 +20,8 @@ const FormatterPage = () => {
         if (input.length > 0) {
             handleConvert();
         }
+        // convert only on route change, not on every keystroke
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [inputFormat, outputFormat])
 
     const description = `Format, validate, prettify, and minify ${inputFormat.toUpperCase()} online. Free ${inputFormat.toUpperCase()} formatter and validator with instant syntax checking and error detection.`;

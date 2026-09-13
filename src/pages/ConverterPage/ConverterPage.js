@@ -22,6 +22,8 @@ const ConverterPage = () => {
         if (input.length > 0) {
             handleConvert();
         }
+        // convert only on route change, not on every keystroke
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [inputFormat, outputFormat])
 
     const description = `Convert ${inputFormat.toUpperCase()} to ${outputFormat.toUpperCase()} instantly online. Validate, format, and transform your data with a free and secure ${inputFormat.toUpperCase()} to ${outputFormat.toUpperCase()} converter. No registration required.`

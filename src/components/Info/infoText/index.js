@@ -11,7 +11,7 @@ import Ndjson from "./Ndjson";
 import Env from "./Env";
 import QueryString from "./QueryString";
 
-export default {
+const infoText = {
     json: Json,
     xml: Xml,
     yaml: Yaml,
@@ -25,3 +25,5 @@ export default {
     env: Env,
     querystring: QueryString
 };
+
+export default infoText;

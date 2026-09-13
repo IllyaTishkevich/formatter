@@ -20,7 +20,7 @@ const FormatSelector = ({ type, current, opposite, handleConvert }) => {
                 handleConvert();
             }
         }
-    }, [type, current, opposite]);
+    }, [type, opposite, handleConvert, navigate]);
 
     return (
         <div className="d-flex align-items-center gap-2">

@@ -1,5 +1,3 @@
-import Logo from '../Logo';
-
 const Header = () => {
     return <header className="p-3">
             <div className="container">

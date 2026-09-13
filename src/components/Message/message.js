@@ -8,7 +8,7 @@ const Message = () => {
 
     const handleCloseErrors = useCallback((id) => {
         removeMessage(id);
-    }, [errors]);
+    }, [removeMessage]);
 
     const errorBlock = useMemo(() => {
         if (errors.length > 0) {
@@ -25,7 +25,7 @@ const Message = () => {
         } else {
             return null;
         }
-    }, [errors]);
+    }, [errors, handleCloseErrors]);
 
     return <div className='error-block position-absolute start-50'>{ errorBlock }</div>
 }

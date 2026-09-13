@@ -21,8 +21,6 @@ const InfoContainer = ({children}) => {
 }
 
 const InfoBlock = ({themes}) => {
-    const isEven = themes.length % 2 === 0;
-
     return <div className='container my-5'>
             <InfoContainer>
                 { themes.map((theme) => <Info theme={theme} />) }

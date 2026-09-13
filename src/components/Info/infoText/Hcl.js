@@ -58,8 +58,8 @@ const Hcl = () => {
 
                 <li>
                     Comments can use <code>#</code>,
-                    <code>//</code>, or block comments
-                    <code>/* ... */</code>.
+                    <code>{'//'}</code>, or block comments
+                    <code>{'/* ... */'}</code>.
                 </li>
 
                 <li>

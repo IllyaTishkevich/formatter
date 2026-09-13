@@ -209,7 +209,6 @@ export const beautifyIni = (input) => {
         .split('\n');
 
     const result = [];
-    let hasValues = false;
 
     for (let line of lines) {
         line = line.trim();
@@ -231,7 +230,6 @@ export const beautifyIni = (input) => {
             }
 
             result.push(`[${sectionMatch[1].trim()}]`);
-            hasValues = false;
 
             continue;
         }
@@ -247,7 +245,6 @@ export const beautifyIni = (input) => {
         const value = line.slice(index + 1).trim();
 
         result.push(`${key} = ${value}`);
-        hasValues = true;
     }
 
     return result.join('\n').trim();

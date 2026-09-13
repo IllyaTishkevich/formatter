@@ -44,7 +44,7 @@ const useActions = () => {
         } catch (e) {
             addErrorMessage(e.message);
         }
-    }, [input, inputFormat, outputFormat])
+    }, [input, inputFormat, outputFormat, addErrorMessage, dispatch])
 
     const handleValidate = useCallback(() => {
         const res = validateByFormat(inputFormat, input)
@@ -55,7 +55,7 @@ const useActions = () => {
         }
 
         addSuccessMessage('Success!');
-    }, [inputFormat, outputFormat, input])
+    }, [inputFormat, input, addErrorMessage, addSuccessMessage])
 
     const handleConvert = useCallback((string = false) => {
         try {
@@ -80,7 +80,7 @@ const useActions = () => {
         } catch (e) {
             addErrorMessage(e.message)
         }
-    }, [inputFormat, outputFormat, input]);
+    }, [inputFormat, outputFormat, input, addErrorMessage, clearMessage, dispatch]);
 
     const handleFormat = useCallback((string = false) => {
         try {
@@ -103,17 +103,17 @@ const useActions = () => {
         } catch (e) {
             addErrorMessage(e.message)
         }
-    }, [inputFormat, outputFormat, input]);
+    }, [outputFormat, input, addErrorMessage, clearMessage, dispatch]);
 
     const handleCleanOutput = useCallback(() => {
         dispatch(setOutput(''));
-    }, [output])
+    }, [dispatch])
 
 
     const handleCleanInput = useCallback(() => {
         dispatch(setInput(''));
         dispatch(setOutput(''));
-    }, [output])
+    }, [dispatch])
 
     const handleCopy = useCallback( () => {
         navigator.clipboard.writeText(editorRef.current.getValue())
@@ -139,7 +139,7 @@ const useActions = () => {
         const value = editorRef.current.getValue();
 
         handleConvert(value);
-    }, [inputFormat, outputFormat, handleConvert])
+    }, [handleConvert])
 
     return {
         handleConvert,

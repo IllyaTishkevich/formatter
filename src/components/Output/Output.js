@@ -1,6 +1,6 @@
 import Editor from '@monaco-editor/react'
-import { useSelector, useDispatch } from 'react-redux'
-import { useRef, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { useState } from 'react'
 import FormatSelector from "../FormatSelector";
 import useParams from "../../core/params";
 import { useActions } from "../Actions";
@@ -22,7 +22,6 @@ const Output = () => {
         lines: 0,
         chars: 0,
     })
-    const editorRef = useRef(null)
 
 
     const getLanguage = (format) => {
