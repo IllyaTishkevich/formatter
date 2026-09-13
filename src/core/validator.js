@@ -6,6 +6,7 @@ import { validateTsv } from "../utils/tsv";
 import { validateIni } from "../utils/ini";
 import { validateProperties } from "../utils/properties";
 import { validateHcl } from "../utils/hcl";
+import { validateNdjson } from "../utils/ndjson";
 
 const xmlParser = new XMLParser()
 
@@ -42,6 +43,9 @@ export function validateByFormat(format, input) {
 
             case 'hcl':
                 return validateHcl(input)
+
+            case 'ndjson':
+                return validateNdjson(input)
 
             default:
                 return { ok: false, error: 'Unknown format' }

@@ -7,7 +7,8 @@ const SUPPORTED = [
     'tsv',
     'ini',
     'properties',
-    'hcl'
+    'hcl',
+    'ndjson'
 ];
 
 export default SUPPORTED;

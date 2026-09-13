@@ -31,6 +31,9 @@
         <loc>https://validformat.online/json/hcl</loc>
     </url>
     <url>
+        <loc>https://validformat.online/json/ndjson</loc>
+    </url>
+    <url>
         <loc>https://validformat.online/xml/json</loc>
     </url>
     <url>
@@ -56,6 +59,9 @@
     </url>
     <url>
         <loc>https://validformat.online/xml/hcl</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/xml/ndjson</loc>
     </url>
     <url>
         <loc>https://validformat.online/yaml/json</loc>
@@ -85,6 +91,9 @@
         <loc>https://validformat.online/yaml/hcl</loc>
     </url>
     <url>
+        <loc>https://validformat.online/yaml/ndjson</loc>
+    </url>
+    <url>
         <loc>https://validformat.online/csv/json</loc>
     </url>
     <url>
@@ -110,6 +119,9 @@
     </url>
     <url>
         <loc>https://validformat.online/csv/hcl</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/csv/ndjson</loc>
     </url>
     <url>
         <loc>https://validformat.online/toml/json</loc>
@@ -139,6 +151,9 @@
         <loc>https://validformat.online/toml/hcl</loc>
     </url>
     <url>
+        <loc>https://validformat.online/toml/ndjson</loc>
+    </url>
+    <url>
         <loc>https://validformat.online/tsv/json</loc>
     </url>
     <url>
@@ -164,6 +179,9 @@
     </url>
     <url>
         <loc>https://validformat.online/tsv/hcl</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/tsv/ndjson</loc>
     </url>
     <url>
         <loc>https://validformat.online/ini/json</loc>
@@ -193,6 +211,9 @@
         <loc>https://validformat.online/ini/hcl</loc>
     </url>
     <url>
+        <loc>https://validformat.online/ini/ndjson</loc>
+    </url>
+    <url>
         <loc>https://validformat.online/properties/json</loc>
     </url>
     <url>
@@ -220,6 +241,9 @@
         <loc>https://validformat.online/properties/hcl</loc>
     </url>
     <url>
+        <loc>https://validformat.online/properties/ndjson</loc>
+    </url>
+    <url>
         <loc>https://validformat.online/hcl/json</loc>
     </url>
     <url>
@@ -245,6 +269,39 @@
     </url>
     <url>
         <loc>https://validformat.online/hcl</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/hcl/ndjson</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/ndjson/json</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/ndjson/xml</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/ndjson/yaml</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/ndjson/csv</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/ndjson/toml</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/ndjson/tsv</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/ndjson/ini</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/ndjson/properties</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/ndjson/hcl</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/ndjson</loc>
     </url>
     <url>
         <loc>https://validformat.online/policy</loc>

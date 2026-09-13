@@ -6,6 +6,7 @@ import { parseTsv, toTsv, minifyTsv } from "../utils/tsv";
 import { minifyIni, parseIni, toIni } from "../utils/ini";
 import { minifyProperties, parseProperties, toProperties } from "../utils/properties";
 import { minifyHcl, parseHcl, toHcl } from "../utils/hcl";
+import { minifyNdjson, parseNdjson, toNdjson } from "../utils/ndjson";
 import Papa from "papaparse";
 
 
@@ -59,6 +60,10 @@ export function minifyByFormat(inputFormat, outputFormat, text) {
             result = parseHcl(text);
             break;
 
+        case 'ndjson':
+            result = parseNdjson(text);
+            break;
+
         default:
             throw new Error('Unsupported input format');
     }
@@ -102,6 +107,10 @@ export function minifyByFormat(inputFormat, outputFormat, text) {
         case 'hcl':
             const hcl = toHcl(result)
             return minifyHcl(hcl)
+
+        case 'ndjson':
+            const ndjson = toNdjson(result)
+            return minifyNdjson(ndjson)
 
         default:
             throw new Error('Unsupported output format')

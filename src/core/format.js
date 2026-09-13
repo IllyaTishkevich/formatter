@@ -6,6 +6,7 @@ import { flatten, minifyCSV, unflatten } from "../utils/csv";
 import { parseIni, toIni, beautifyIni } from "../utils/ini";
 import { parseProperties, toProperties, beautifyProperties } from "../utils/properties";
 import { parseHcl, toHcl } from "../utils/hcl";
+import { parseNdjson, toNdjson, beautifyNdjson } from "../utils/ndjson";
 import Papa from "papaparse";
 
 const parser = new XMLParser(
@@ -74,6 +75,10 @@ export function formatter(input, format) {
             data = parseHcl(input);
             break
 
+        case 'ndjson':
+            data = parseNdjson(input);
+            break
+
         default:
             throw new Error('Unsupported input format')
     }
@@ -113,6 +118,10 @@ export function formatter(input, format) {
 
         case 'hcl':
             return toHcl(data)
+
+        case 'ndjson':
+            const ndjson = toNdjson(data)
+            return beautifyNdjson(ndjson)
 
         default:
             throw new Error('Unsupported output format')

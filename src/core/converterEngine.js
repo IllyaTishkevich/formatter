@@ -7,6 +7,7 @@ import { parseTsv, toTsv } from "../utils/tsv";
 import { parseIni, toIni } from "../utils/ini";
 import { parseProperties, toProperties } from "../utils/properties";
 import { parseHcl, toHcl } from "../utils/hcl";
+import { parseNdjson, toNdjson } from "../utils/ndjson";
 
 const parser = new XMLParser(
     {
@@ -76,6 +77,10 @@ export function convert(input, from, to) {
             data = parseHcl(input);
             break;
 
+        case 'ndjson':
+            data = parseNdjson(input);
+            break;
+
         default:
             throw new Error('Unsupported input format')
     }
@@ -113,6 +118,9 @@ export function convert(input, from, to) {
 
         case 'hcl':
             return toHcl(data);
+
+        case 'ndjson':
+            return toNdjson(data);
 
         default:
             throw new Error('Unsupported output format')

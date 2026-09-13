@@ -6,7 +6,7 @@ const Include = () => {
 
     SUPPORTED.forEach((valueA) => {
         SUPPORTED.forEach((valueB) => {
-            const url = valueA === valueB ? `/${valueA}` : `${valueA}/${valueB}`;
+            const url = valueA === valueB ? `/${valueA}` : `/${valueA}/${valueB}`;
 
             include.push(url);
         })
