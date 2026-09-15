@@ -190,7 +190,7 @@
       "/querystring",
       "/policy",
       "/tool/query",
-      "tool/ip"
+      "/tool/ip"
     ]
   },
   "eslintConfig": {
