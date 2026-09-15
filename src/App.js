@@ -11,7 +11,7 @@ import FormatterPage from "./pages/FormatterPage"
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Sitemap from "./pages/Sitemap";
 import Include from "./pages/Include";
-import ToolQuery from "./pages/Tool/Query";
+import Tool from "./pages/Tool";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
               <Message />
               <Routes>
                   <Route path="/policy" element={<PrivacyPolicy />} />
-                  <Route path="/tool/query" element={<ToolQuery />} />
+                  <Route path="/tool/:tool" element={<Tool />} />
                   <Route path="/:input/:output" element={<ConverterPage />} />
                   <Route path="/:input" element={<FormatterPage />} />
                   <Route path="/sitemap" element={<Sitemap />} />

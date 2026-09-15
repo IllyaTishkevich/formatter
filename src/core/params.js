@@ -15,9 +15,11 @@ const useParams = () => {
     const config = useMemo(() => {
         const input = normalizeFormat(params.input)
         const output = params.output ?? input
+        const tool = params.tool ?? 'query'
         return {
             inputFormat: input,
             outputFormat: output,
+            tool: tool
         }
     }, [params])
 
