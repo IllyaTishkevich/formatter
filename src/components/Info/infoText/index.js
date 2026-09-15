@@ -11,6 +11,7 @@ import Ndjson from "./Ndjson";
 import Env from "./Env";
 import QueryString from "./QueryString";
 import ToolQuery from "./ToolQuery";
+import ToolIp from "./ToolIp";
 
 const infoText = {
     json: Json,
@@ -25,7 +26,8 @@ const infoText = {
     ndjson: Ndjson,
     env: Env,
     querystring: QueryString,
-    'tool-query': ToolQuery
+    'tool-query': ToolQuery,
+    'tool-ip': ToolIp
 };
 
 export default infoText;

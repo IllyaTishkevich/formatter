@@ -23,7 +23,7 @@ const InfoContainer = ({children}) => {
 const InfoBlock = ({themes}) => {
     return <div className='container my-5'>
             <InfoContainer>
-                { themes.map((theme) => <Info theme={theme} />) }
+                { themes.map((theme) => <Info key={theme} theme={theme} />) }
             </InfoContainer>
     </div>
 }

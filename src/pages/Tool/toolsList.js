@@ -1,5 +1,9 @@
 import Query from "./Query";
+import Ip from "./Ip";
 
-export default {
-    query: Query
+const toolsList = {
+    query: Query,
+    ip: Ip
 };
+
+export default toolsList;

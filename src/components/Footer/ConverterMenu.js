@@ -3,7 +3,7 @@ import SUPPORTED from "../../utils/formats";
 import { firstToUpper } from "../../core/util";
 
 const ConverterMenu = () => {
-    const block = SUPPORTED.map((inputFormat) => <List inputFormat={inputFormat} />)
+    const block = SUPPORTED.map((inputFormat) => <List key={inputFormat} inputFormat={inputFormat} />)
 
     return <>
             <div className="col mb-12 align-items-end text-end">
@@ -16,7 +16,7 @@ const ConverterMenu = () => {
 }
 
 const List = ({ inputFormat }) => {
-    const list = SUPPORTED.map((outputFormat) => inputFormat !== outputFormat ? <Element inputFormat={inputFormat} outputFormat={outputFormat} /> : null)
+    const list = SUPPORTED.map((outputFormat) => inputFormat !== outputFormat ? <Element key={outputFormat} inputFormat={inputFormat} outputFormat={outputFormat} /> : null)
 
     return <div className="col mb-3 align-items-end text-end">
         <ul className="nav flex-column ">

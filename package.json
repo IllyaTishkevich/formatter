@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://validformat.online",
+  "proxy": "http://127.0.0.1:8000",
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
     "@reduxjs/toolkit": "^2.12.0",
@@ -188,7 +189,8 @@
       "/querystring/env",
       "/querystring",
       "/policy",
-      "/tool/query"
+      "/tool/query",
+      "tool/ip"
     ]
   },
   "eslintConfig": {

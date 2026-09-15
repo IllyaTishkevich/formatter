@@ -26,6 +26,9 @@ const Sitemap = () => {
     </url>
     <url>
         <loc>https://validformat.online/tool/query</loc>
+    </url>
+    <url>
+        <loc>https://validformat.online/tool/ip</loc>
     </url>`;
 
     sitemap += '\n' +

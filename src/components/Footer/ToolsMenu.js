@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 
 const TOOLS = [
-    { path: '/tool/query', label: 'HTTP Request Tool' }
+    { path: '/tool/query', label: 'HTTP Request Tool' },
+    { path: '/tool/ip', label: 'IP Address Tool' }
 ];
 
 const ToolsMenu = () => {
