@@ -38,6 +38,19 @@ main {
     max-width: 10%;
   }
 
+  .ad-slot {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .ad-slot-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
   .panel-output {
     padding-right: 6rem;
     flex: 0 0 45%;

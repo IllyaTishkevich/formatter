@@ -8,6 +8,13 @@ import useParams from "../../core/params";
 import {minifyByFormat} from "../../core/minify";
 import {formatter} from "../../core/format";
 
+// production build (.env.production) points this at the api.validformat.online
+// subdomain; local dev leaves it unset, so the base is '' and the endpoint
+// below stays a relative path that CRA's "proxy" field (package.json) forwards
+// to the local Symfony backend
+const API_BASE_URL = (process.env.REACT_APP_API_URL || '').replace(/\/+$/, '');
+const AD_IMAGE_ENDPOINT = `${API_BASE_URL}/api/check/image`;
+
 const makeDownload = (data, fileName) => {
     const text =
         typeof data === 'string'
@@ -164,11 +171,22 @@ const ActionButton = ({label, handler}) => {
     </button>
 }
 
+const hideOnError = (e) => {
+    e.currentTarget.style.display = 'none';
+}
+
+const AdSlot = () => {
+    return <div className="d-none d-xl-flex flex-grow-1 w-100 align-items-center justify-content-center ad-slot">
+        <img src={AD_IMAGE_ENDPOINT} alt="" className="ad-slot-image" onError={hideOnError} />
+    </div>
+}
+
 const ActionsBlock = ({ children }) => {
-    return <div className="p-1 panel panel-actions">
+    return <div className="p-1 panel panel-actions d-flex flex-column h-100">
         <div className="d-flex flex-row flex-xl-column align-items-center align-items-xl-center justify-content-center justify-content-xl-start gap-2 my-lg-3">
             {Children.map(children, child => child)}
         </div>
+        <AdSlot />
     </div>
 }
 
