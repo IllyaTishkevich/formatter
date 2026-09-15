@@ -113,24 +113,30 @@ const Ip = () => {
         <main className="py-3 px-5">
             <h1 className="display-6 fw-normal mb-3">IP Address Tool</h1>
             <div className="d-flex flex-column flex-xl-row">
-                <div className="bg-body-tertiary border rounded-3 p-3 panel panel-input d-flex flex-column align-items-center justify-content-center text-center">
+                <div className="bg-body-tertiary border rounded-3 p-3 panel panel-input d-flex flex-column align-items-center justify-content-start text-center">
                     <div className="text-muted small mb-2">Your IP address</div>
-                    <div className="display-5 fw-bold text-break">
-                        { loading && !data ? '…' : (data?.ip || 'Unavailable') }
+                    <div className="d-flex align-items-center justify-content-center gap-2">
+                        <div className="display-5 fw-bold text-break">
+                            { loading && !data ? '…' : (data?.ip || 'Unavailable') }
+                        </div>
+                        <button
+                            type="button"
+                            className="btn btn-outline-secondary btn-sm"
+                            onClick={handleCopy}
+                            disabled={!data?.ip}
+                            title={ copied ? 'Copied!' : 'Copy' }
+                            aria-label="Copy"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-copy" viewBox="0 0 16 16">
+                                <path fillRule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                            </svg>
+                        </button>
                     </div>
                     { data?.ips?.length > 1 && (
                         <div className="text-muted small mt-2 text-break">
                             Chain: {data.ips.join(' → ')}
                         </div>
                     ) }
-                    <button
-                        type="button"
-                        className="btn btn-outline-secondary btn-sm mt-3"
-                        onClick={handleCopy}
-                        disabled={!data?.ip}
-                    >
-                        { copied ? 'Copied!' : 'Copy' }
-                    </button>
                 </div>
 
                 <ActionsBlock>
@@ -146,7 +152,7 @@ const Ip = () => {
                         <>
                             <Section
                                 title="Network"
-                                entries={pick(data, ['ip', 'ips', 'forwardedFor', 'host', 'port', 'scheme', 'secure'])}
+                                entries={pick(data, ['ip', 'ips', 'forwardedFor', 'port', 'scheme', 'secure'])}
                             />
                             <Section
                                 title="Browser"
@@ -162,7 +168,7 @@ const Ip = () => {
                             />
                             <Section
                                 title="Request"
-                                entries={pick(data, ['method', 'protocolVersion', 'referer', 'origin', 'requestTime'])}
+                                entries={pick(data, ['method', 'protocolVersion', 'requestTime'])}
                             />
                             <Section
                                 title="User agent"
